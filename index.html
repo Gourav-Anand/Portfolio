@@ -3,206 +3,262 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Gourav Anand – People Operations Specialist</title>
+<title>Gourav Anand - Future of HR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#FFFFFF;--bg2:#F5F7FA;
-  --blue:#1A6BF5;--blue-dark:#1254CC;--blue-light:#E8F0FE;--blue-mid:#D0E2FF;
-  --text:#0A0F1E;--text2:#3D4A5C;--text3:#6B7A90;
-  --border:#D8E1EE;--border2:#C5D3E8;
-  --green:#059669;--green-bg:#ECFDF5;
-  --font-display:'Sora',sans-serif;--font-body:'Inter',sans-serif;
+  --bg:#FFFFFF;--bg2:#F7F9FC;--bg3:#EEF3FB;
+  --blue:#1A6BF5;--blue-dark:#1254CC;--blue-light:#E8F0FE;--blue-mid:#C2D6FF;--blue-glow:rgba(26,107,245,0.15);
+  --text:#080F1E;--text2:#374151;--text3:#6B7A90;
+  --border:#E2E8F2;--border2:#C8D8F0;
+  --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --mono:'JetBrains Mono',monospace;
+  --display:'Sora',sans-serif;
+  --body:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.7;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden}
 .page{display:none}.page.active{display:block}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--blue);cursor:pointer}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--text2);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;cursor:pointer}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-logo{font-family:var(--display);font-weight:800;font-size:1.05rem;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:0.5rem}
+.nav-logo-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;display:inline-block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text3);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;cursor:pointer}
 .nav-links a:hover{color:var(--blue)}
-.nav-cta{background:var(--blue);color:#fff;padding:0.5rem 1.4rem;border-radius:8px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s}
+.nav-right{display:flex;align-items:center;gap:0.8rem}
+.nav-status{display:flex;align-items:center;gap:0.45rem;font-size:0.75rem;font-weight:600;color:var(--green);background:var(--green-bg);border:1px solid var(--green-border);padding:0.3rem 0.8rem;border-radius:100px}
+.nav-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.nav-cta{background:var(--blue);color:#fff;padding:0.45rem 1.2rem;border-radius:7px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:background 0.2s}
 .nav-cta:hover{background:var(--blue-dark)}
 
-/* HERO */
-.hero-wrap{background:linear-gradient(135deg,#F0F5FF 0%,#FFFFFF 60%);border-bottom:1px solid var(--border);padding:9rem 2rem 5rem}
-.hero{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:4rem;align-items:center}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:var(--blue-light);color:var(--blue);font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 1rem;border-radius:100px;margin-bottom:1.4rem;border:1px solid var(--blue-mid)}
-.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:1.4rem;color:var(--text);letter-spacing:-0.02em}
-.hero h1 .blue{color:var(--blue)}.hero h1 .line{display:block}
-.hero-sub{font-size:1rem;color:var(--text2);max-width:540px;margin-bottom:2rem;line-height:1.85}
+/* ── HERO ── */
+.hero-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(26,107,245,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(26,107,245,0.04) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:center}
+
+/* Terminal block */
+.terminal{background:var(--text);border-radius:12px;padding:1.5rem;font-family:var(--mono);font-size:0.8rem;line-height:1.8;margin-bottom:2.5rem;border:1px solid #1E2D42;box-shadow:0 4px 24px rgba(8,15,30,0.12)}
+.terminal-bar{display:flex;align-items:center;gap:0.4rem;margin-bottom:1.2rem}
+.t-dot{width:10px;height:10px;border-radius:50%}
+.t-red{background:#FF5F57}.t-yellow{background:#FFBD2E}.t-green{background:#28CA41}
+.t-line{color:#94A3B8}.t-blue{color:#60A5FA}.t-green-t{color:#34D399}.t-white{color:#F1F5F9}.t-comment{color:#475569}
+.cursor{display:inline-block;width:2px;height:0.9em;background:#60A5FA;animation:cursor-blink 1s infinite;vertical-align:middle;margin-left:2px}
+@keyframes cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.hero-eyebrow{font-family:var(--mono);font-size:0.75rem;font-weight:500;color:var(--blue);letter-spacing:0.08em;margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem}
+.hero-eyebrow::before{content:'//';color:var(--blue-mid);font-size:0.8rem}
+.hero-h1{font-family:var(--display);font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:var(--text);margin-bottom:1.5rem}
+.hero-h1 .blue{color:var(--blue)}
+.hero-h1 .underline-anim{position:relative;display:inline-block}
+.hero-h1 .underline-anim::after{content:'';position:absolute;bottom:-3px;left:0;width:100%;height:3px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:underline-in 0.8s 1.2s forwards}
+@keyframes underline-in{to{transform:scaleX(1)}}
+.hero-sub{font-size:1.05rem;color:var(--text2);line-height:1.9;max-width:520px;margin-bottom:2.5rem}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-pills{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.5rem}
+.hero-pill{font-family:var(--mono);font-size:0.72rem;font-weight:500;padding:0.35rem 0.85rem;border-radius:6px;border:1px solid var(--border2);color:var(--text2);background:var(--bg2);letter-spacing:0.02em}
+.hero-pill.active-pill{background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)}
 .hero-actions{display:flex;gap:0.8rem;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#fff;padding:0.75rem 1.8rem;border-radius:8px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:background 0.2s;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
-.btn-primary:hover{background:var(--blue-dark)}
-.btn-ghost{border:1.5px solid var(--border2);color:var(--text2);padding:0.75rem 1.8rem;border-radius:8px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn-download{border:1.5px solid var(--blue);color:var(--blue);padding:0.75rem 1.8rem;border-radius:8px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;background:#fff}
-.btn-download:hover{background:var(--blue-light)}
+.btn-blue{background:var(--blue);color:#fff;padding:0.8rem 2rem;border-radius:9px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(26,107,245,0.3)}
+.btn-blue:hover{background:var(--blue-dark);box-shadow:0 6px 20px rgba(26,107,245,0.4);transform:translateY(-1px)}
+.btn-outline{border:1.5px solid var(--border2);color:var(--text2);padding:0.8rem 2rem;border-radius:9px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-ghost-dl{border:1.5px solid var(--blue);color:var(--blue);padding:0.8rem 2rem;border-radius:9px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;background:#fff}
+.btn-ghost-dl:hover{background:var(--blue-light)}
 
-/* HERO CARD */
-.hero-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:0 4px 32px rgba(26,107,245,0.08)}
-.hero-card-title{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem}
-.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
-.stat-box{background:var(--bg2);border-radius:12px;padding:1.2rem;text-align:center}
-.stat-box.blue-bg{background:var(--blue-light)}
-.stat-num{font-family:var(--font-display);font-size:1.8rem;font-weight:800;color:var(--blue);display:block;line-height:1}
-.stat-label{font-size:0.72rem;color:var(--text3);margin-top:0.35rem;letter-spacing:0.03em}
-/* open to work strip - no location/CTC */
-.avail-strip{background:var(--green-bg);border:1px solid #BBF7D0;border-radius:10px;padding:0.85rem 1rem;display:flex;align-items:center;gap:0.7rem;margin-top:0.5rem}
-.avail-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
-.avail-text{font-size:0.88rem;font-weight:700;color:var(--green)}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+/* Hero right - stat card */
+.hero-stat-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:2rem;box-shadow:0 8px 40px rgba(26,107,245,0.08);position:relative;overflow:hidden}
+.hero-stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),#818CF8)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.2rem}
+.stat-cell{background:#fff;padding:1.3rem 1rem;text-align:center}
+.stat-cell.highlight{background:var(--blue-light)}
+.stat-big{font-family:var(--display);font-size:1.9rem;font-weight:800;color:var(--blue);display:block;line-height:1}
+.stat-desc{font-size:0.7rem;color:var(--text3);margin-top:0.35rem;letter-spacing:0.03em;text-transform:uppercase;font-weight:500}
+.open-badge{display:flex;align-items:center;gap:0.6rem;background:var(--green-bg);border:1px solid var(--green-border);border-radius:10px;padding:0.8rem 1rem}
+.open-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:blink 2s infinite;flex-shrink:0}
+.open-text{font-size:0.85rem;font-weight:700;color:var(--green)}
 
-/* HIGHLIGHTS BAR */
-.highlights{background:var(--blue);padding:3rem 2rem}
-.highlights-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.15)}
-.hl-item{background:var(--blue);padding:2rem 1.5rem;text-align:center}
-.hl-num{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:#fff;display:block;line-height:1}
-.hl-label{font-size:0.75rem;color:rgba(255,255,255,0.72);margin-top:0.5rem;letter-spacing:0.06em;text-transform:uppercase}
+/* ── THREE PILLARS ── */
+.pillars-section{background:var(--text);padding:5rem 2rem;position:relative;overflow:hidden}
+.pillars-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#080F1E 0%,#0D1829 100%)}
+.pillars-inner{max-width:1140px;margin:0 auto;position:relative}
+.pillars-label{font-family:var(--mono);font-size:0.72rem;color:#60A5FA;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem}
+.pillars-title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:0.6rem;letter-spacing:-0.02em}
+.pillars-sub{color:#94A3B8;margin-bottom:3.5rem;font-size:1rem;max-width:500px;line-height:1.7}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pillar{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.pillar::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;border-radius:16px}
+.pillar:nth-child(1)::before{background:linear-gradient(135deg,rgba(26,107,245,0.08),transparent)}
+.pillar:nth-child(2)::before{background:linear-gradient(135deg,rgba(139,92,246,0.08),transparent)}
+.pillar:nth-child(3)::before{background:linear-gradient(135deg,rgba(5,150,105,0.08),transparent)}
+.pillar:hover::before{opacity:1}
+.pillar:hover{border-color:rgba(255,255,255,0.16);transform:translateY(-4px)}
+.pillar-num{font-family:var(--mono);font-size:0.72rem;color:#475569;margin-bottom:1.2rem;letter-spacing:0.06em}
+.pillar-icon{font-size:2rem;margin-bottom:1rem;display:block}
+.pillar-title{font-family:var(--display);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.7rem}
+.pillar-desc{font-size:0.875rem;color:#94A3B8;line-height:1.75}
+.pillar-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.2rem}
+.p-tag{font-family:var(--mono);font-size:0.68rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#CBD5E1;padding:0.2rem 0.6rem;border-radius:4px}
 
-/* SECTIONS */
-.section-wrap{max-width:1100px;margin:0 auto;padding:5rem 2rem}
-.section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem}
-.section-title{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2rem);font-weight:800;color:var(--text);margin-bottom:0.5rem;letter-spacing:-0.02em}
+/* ── EXPERIENCE ── */
+.section-outer{padding:5rem 2rem}
+.section-inner{max-width:1140px;margin:0 auto}
+.section-eyebrow{font-family:var(--mono);font-size:0.72rem;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.6rem}
+.section-h2{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.1rem);font-weight:800;color:var(--text);margin-bottom:0.5rem;letter-spacing:-0.02em}
 .section-sub{color:var(--text3);margin-bottom:3rem;font-size:0.95rem}
-.section-divider{height:1px;background:var(--border);max-width:1100px;margin:0 auto}
 
-/* EXPERIENCE */
-.exp-list{display:flex;flex-direction:column}
-.exp-item{display:grid;grid-template-columns:180px 1fr;position:relative}
-.exp-item::before{content:'';position:absolute;left:162px;top:1.6rem;bottom:0;width:1.5px;background:var(--border)}
-.exp-item:last-child::before{display:none}
-.exp-left{padding:1.5rem 2rem 1.5rem 0;position:relative}
-.exp-dot{width:12px;height:12px;background:var(--blue);border-radius:50%;position:absolute;right:-6px;top:1.85rem;border:2.5px solid #fff;box-shadow:0 0 0 2px var(--border)}
-.exp-date{font-size:0.78rem;color:var(--text3);font-weight:500;line-height:1.5}
-.exp-right{padding:1.5rem 0 2.5rem 2.5rem}
-.exp-badge{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--blue-light);color:var(--blue);padding:0.2rem 0.65rem;border-radius:4px;margin-bottom:0.5rem;border:1px solid var(--blue-mid)}
-.exp-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
-.exp-company{font-size:0.88rem;color:var(--text3);margin-bottom:0.8rem;font-weight:500}
-.exp-scope{font-size:0.8rem;color:var(--green);font-weight:600;margin-bottom:0.9rem;display:inline-flex;align-items:center;gap:0.4rem;background:var(--green-bg);padding:0.35rem 0.75rem;border-radius:6px;border:1px solid #BBF7D0}
-.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
-.exp-bullets li{font-size:0.875rem;color:var(--text2);padding-left:1.1rem;position:relative;line-height:1.65}
-.exp-bullets li::before{content:'';position:absolute;left:0;top:0.65rem;width:5px;height:5px;background:var(--blue);border-radius:50%}
+.exp-timeline{display:flex;flex-direction:column;gap:0}
+.exp-row{display:grid;grid-template-columns:200px 1fr;position:relative}
+.exp-row::before{content:'';position:absolute;left:188px;top:2rem;bottom:0;width:1px;background:var(--border)}
+.exp-row:last-child::before{display:none}
+.exp-left-col{padding:1.8rem 2rem 2rem 0;position:relative}
+.exp-node{position:absolute;right:-7px;top:2rem;width:14px;height:14px;background:var(--blue);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue-mid)}
+.exp-date-label{font-family:var(--mono);font-size:0.73rem;color:var(--text3);line-height:1.6}
+.exp-body{padding:1.8rem 0 2.5rem 2.5rem}
+.exp-role-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--blue-light);color:var(--blue);padding:0.22rem 0.7rem;border-radius:5px;margin-bottom:0.7rem;border:1px solid var(--blue-mid)}
+.exp-role{font-family:var(--display);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
+.exp-org{font-size:0.875rem;color:var(--text3);font-weight:500;margin-bottom:0.9rem}
+.exp-scope-chip{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.78rem;font-weight:600;color:var(--green);background:var(--green-bg);border:1px solid var(--green-border);padding:0.3rem 0.75rem;border-radius:6px;margin-bottom:1rem}
+.exp-list-items{list-style:none;display:flex;flex-direction:column;gap:0.55rem}
+.exp-list-items li{font-size:0.875rem;color:var(--text2);padding-left:1.2rem;position:relative;line-height:1.7}
+.exp-list-items li::before{content:'';position:absolute;left:0;top:0.68rem;width:5px;height:5px;background:var(--blue);border-radius:50%}
 
-/* INTERNSHIP TOGGLE */
-.internship-toggle{display:flex;align-items:center;gap:0.75rem;cursor:pointer;padding:1rem 1.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-top:1.5rem;user-select:none;transition:background 0.2s}
-.internship-toggle:hover{background:var(--blue-light);border-color:var(--blue-mid)}
-.internship-toggle-icon{font-size:0.9rem;color:var(--blue);transition:transform 0.3s;display:inline-block}
-.internship-toggle-icon.open{transform:rotate(180deg)}
-.internship-toggle-label{font-size:0.85rem;font-weight:600;color:var(--blue)}
-.internship-list{display:none;margin-top:1rem;border-left:2px solid var(--border);padding-left:1.5rem}
-.internship-list.open{display:block}
-.intern-item{padding:1rem 0;border-bottom:1px solid var(--border)}
-.intern-item:last-child{border-bottom:none}
-.intern-date{font-size:0.75rem;color:var(--text3);font-weight:500;margin-bottom:0.2rem}
-.intern-role{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.1rem}
-.intern-company{font-size:0.85rem;color:var(--text3)}
-.intern-badge{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;padding:0.15rem 0.55rem;border-radius:4px;margin-bottom:0.4rem}
+/* Internship toggle */
+.intern-toggle-btn{display:flex;align-items:center;gap:0.75rem;margin-top:1.5rem;padding:0.9rem 1.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;cursor:pointer;user-select:none;transition:all 0.2s;width:fit-content}
+.intern-toggle-btn:hover{background:var(--blue-light);border-color:var(--blue-mid)}
+.intern-toggle-icon{font-family:var(--mono);font-size:0.85rem;color:var(--blue);transition:transform 0.3s}
+.intern-toggle-icon.open{transform:rotate(180deg)}
+.intern-toggle-label{font-size:0.85rem;font-weight:600;color:var(--blue)}
+.intern-panel{display:none;margin-top:1rem;border-left:2px solid var(--border);padding-left:1.5rem}
+.intern-panel.open{display:block}
+.intern-entry{padding:0.9rem 0;border-bottom:1px solid var(--border)}
+.intern-entry:last-child{border-bottom:none}
+.intern-badge{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;background:#FFF7ED;color:#C2410C;border:1px solid #FED7AA;padding:0.15rem 0.5rem;border-radius:4px;margin-bottom:0.3rem}
+.intern-date{font-family:var(--mono);font-size:0.73rem;color:var(--text3)}
+.intern-role{font-weight:700;font-size:0.9rem;color:var(--text);margin:0.1rem 0}
+.intern-org{font-size:0.82rem;color:var(--text3)}
 
-/* PROJECT CARDS */
+/* ── PROJECT CARDS ── */
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.project-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow 0.25s,transform 0.25s;cursor:pointer}
-.project-card:hover{box-shadow:0 10px 36px rgba(26,107,245,0.14);transform:translateY(-4px)}
-.project-card:hover .project-arrow{opacity:1;transform:translateX(0)}
-.project-img{height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;position:relative;border-bottom:1px solid var(--border)}
-.project-img-icon{font-size:2.2rem;opacity:0.38}
-.project-img-hint{font-size:0.68rem;color:var(--text3);letter-spacing:0.04em}
-.project-type-badge{position:absolute;top:0.75rem;left:0.75rem;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--blue);color:#fff;padding:0.2rem 0.6rem;border-radius:4px}
-.project-body{padding:1.2rem 1.3rem 1.3rem}
-.project-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;line-height:1.35}
-.project-desc-short{font-size:0.82rem;color:var(--text3);line-height:1.6;margin-bottom:0.8rem}
-.project-footer{display:flex;align-items:center;justify-content:space-between}
-.project-outcome-pill{font-size:0.72rem;color:var(--green);font-weight:600;background:var(--green-bg);padding:0.3rem 0.65rem;border-radius:5px;border:1px solid #BBF7D0}
-.project-arrow{font-size:0.8rem;color:var(--blue);font-weight:600;opacity:0;transform:translateX(-4px);transition:all 0.2s}
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.25s;position:relative}
+.proj-card:hover{box-shadow:0 12px 40px rgba(26,107,245,0.13);transform:translateY(-5px);border-color:var(--blue-mid)}
+.proj-card:hover .proj-card-arrow{opacity:1;transform:translateX(0)}
+.proj-thumb{height:158px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;position:relative;border-bottom:1px solid var(--border)}
+.proj-thumb-icon{font-size:2.4rem;opacity:0.35;transition:transform 0.3s}
+.proj-card:hover .proj-thumb-icon{transform:scale(1.1);opacity:0.5}
+.proj-thumb-hint{font-family:var(--mono);font-size:0.65rem;color:var(--text3);letter-spacing:0.05em}
+.proj-type-chip{position:absolute;top:0.75rem;left:0.75rem;font-family:var(--mono);font-size:0.63rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;background:var(--blue);color:#fff;padding:0.22rem 0.65rem;border-radius:4px}
+.proj-status-chip{position:absolute;top:0.75rem;right:0.75rem;font-size:0.62rem;font-weight:700;letter-spacing:0.05em;background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);padding:0.2rem 0.55rem;border-radius:4px}
+.proj-body{padding:1.2rem 1.3rem 1.3rem}
+.proj-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.45rem}
+.proj-name{font-family:var(--display);font-size:0.95rem;font-weight:700;color:var(--text);line-height:1.3}
+.proj-card-arrow{font-size:0.85rem;color:var(--blue);opacity:0;transform:translateX(-6px);transition:all 0.25s;flex-shrink:0;margin-top:0.1rem}
+.proj-short{font-size:0.82rem;color:var(--text3);line-height:1.65;margin-bottom:0.85rem}
+.proj-footer{display:flex;align-items:center;justify-content:space-between}
+.proj-outcome{font-family:var(--mono);font-size:0.7rem;color:var(--green);font-weight:600;background:var(--green-bg);padding:0.28rem 0.65rem;border-radius:5px;border:1px solid var(--green-border)}
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-.skill-group{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.6rem}
-.skill-group-title{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem}
-.skill-tags{display:flex;flex-wrap:wrap;gap:0.5rem}
-.skill-tag{font-size:0.78rem;background:#fff;border:1px solid var(--border2);color:var(--text2);padding:0.3rem 0.8rem;border-radius:6px;font-weight:500}
+/* ── SKILLS - tag cloud style ── */
+.skills-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.skills-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:1rem}
+.skill-col-title{font-family:var(--mono);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--blue-light)}
+.skill-tags-wrap{display:flex;flex-wrap:wrap;gap:0.45rem}
+.s-tag{font-size:0.78rem;background:#fff;border:1px solid var(--border2);color:var(--text2);padding:0.32rem 0.8rem;border-radius:6px;font-weight:500;transition:all 0.2s;cursor:default}
+.s-tag:hover{background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)}
 
-/* CERT + EDU */
-.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.cert-item{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem}
-.cert-issuer{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--blue);margin-bottom:0.4rem}
-.cert-name{font-size:0.85rem;color:var(--text);font-weight:500;line-height:1.45}
-.edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.edu-item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.6rem;display:flex;gap:1rem;align-items:flex-start}
-.edu-icon{width:42px;height:42px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;border:1px solid var(--blue-mid)}
-.edu-year{font-size:0.7rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--text3);margin-bottom:0.3rem}
-.edu-degree{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.2rem}
-.edu-school{font-size:0.82rem;color:var(--text3);margin-bottom:0.4rem}
-.edu-cgpa{font-size:0.8rem;font-weight:700;color:var(--green)}
+/* ── CERT + EDU ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.cert-list{display:flex;flex-direction:column;gap:0.75rem}
+.cert-row{display:flex;align-items:flex-start;gap:0.9rem;padding:0.9rem 1rem;background:#fff;border:1px solid var(--border);border-radius:10px;transition:border-color 0.2s}
+.cert-row:hover{border-color:var(--blue-mid)}
+.cert-icon{width:36px;height:36px;background:var(--blue-light);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;border:1px solid var(--blue-mid)}
+.cert-issuer{font-family:var(--mono);font-size:0.67rem;font-weight:600;letter-spacing:0.06em;color:var(--blue);margin-bottom:0.15rem}
+.cert-name{font-size:0.83rem;color:var(--text);font-weight:500;line-height:1.4}
+.edu-list{display:flex;flex-direction:column;gap:1rem}
+.edu-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;display:flex;gap:1rem}
+.edu-icon{width:44px;height:44px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;border:1px solid var(--blue-mid)}
+.edu-year{font-family:var(--mono);font-size:0.68rem;color:var(--text3);margin-bottom:0.25rem}
+.edu-deg{font-weight:700;font-size:0.95rem;color:var(--text);margin-bottom:0.15rem}
+.edu-school{font-size:0.82rem;color:var(--text3);margin-bottom:0.35rem}
+.edu-gpa{font-family:var(--mono);font-size:0.78rem;font-weight:600;color:var(--green)}
 
-/* CONTACT */
-.contact-section{background:var(--text);padding:5rem 2rem}
-.contact-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.contact-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:#fff;margin-bottom:1rem;line-height:1.15;letter-spacing:-0.02em}
-.contact-title span{color:var(--blue)}
-.contact-sub{color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:2rem;font-size:0.95rem}
-.contact-links{display:flex;flex-direction:column;gap:0.9rem}
-.contact-link{display:flex;align-items:center;gap:1rem;color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;transition:all 0.2s;padding:1rem 1.2rem;background:rgba(255,255,255,0.06);border-radius:12px;border:1px solid rgba(255,255,255,0.1)}
-.contact-link:hover{color:#fff;border-color:rgba(26,107,245,0.5);background:rgba(26,107,245,0.12)}
-.contact-link-icon{width:38px;height:38px;background:rgba(255,255,255,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.08);text-align:center;padding:1.5rem;color:rgba(255,255,255,0.3);font-size:0.78rem}
+/* ── CONTACT ── */
+.contact-section{background:var(--text);padding:5.5rem 2rem}
+.contact-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.contact-label{font-family:var(--mono);font-size:0.72rem;color:#60A5FA;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.8rem}
+.contact-h2{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-0.02em;margin-bottom:1rem}
+.contact-h2 span{color:var(--blue)}
+.contact-desc{color:#94A3B8;line-height:1.85;margin-bottom:2rem;font-size:0.95rem}
+.contact-cards{display:flex;flex-direction:column;gap:0.85rem}
+.contact-card{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;text-decoration:none;color:rgba(255,255,255,0.82);transition:all 0.2s}
+.contact-card:hover{background:rgba(26,107,245,0.15);border-color:rgba(26,107,245,0.4);color:#fff}
+.contact-card-icon{width:40px;height:40px;background:rgba(255,255,255,0.08);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.contact-card-label{font-family:var(--mono);font-size:0.67rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.4);margin-bottom:0.1rem}
+.contact-card-val{font-size:0.9rem;font-weight:500}
+footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-align:center;padding:1.5rem;color:rgba(255,255,255,0.25);font-size:0.78rem;font-family:var(--mono)}
 
-/* ========== PROJECT DETAIL PAGE ========== */
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border);max-width:1140px;margin:0 auto}
+
+/* ── PROJECT DETAIL PAGE ── */
 #page-project{background:var(--bg)}
-.proj-detail-hero{background:linear-gradient(135deg,#F0F5FF 0%,#FFFFFF 70%);border-bottom:1px solid var(--border);padding:8rem 2rem 3.5rem}
-.proj-detail-inner{max-width:900px;margin:0 auto}
-.back-btn{display:inline-flex;align-items:center;gap:0.5rem;color:var(--blue);font-size:0.85rem;font-weight:600;cursor:pointer;margin-bottom:2rem;border:none;background:none;padding:0;transition:opacity 0.2s}
-.back-btn:hover{opacity:0.65}
-.proj-detail-badge{display:inline-block;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--blue);color:#fff;padding:0.3rem 0.85rem;border-radius:5px;margin-bottom:1rem}
-.proj-detail-title{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--text);line-height:1.1;margin-bottom:1rem;letter-spacing:-0.02em}
-.proj-detail-tagline{font-size:1.05rem;color:var(--text2);line-height:1.8;max-width:680px}
-.proj-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
-.proj-meta-item{display:flex;flex-direction:column;gap:0.2rem}
-.proj-meta-label{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
-.proj-meta-value{font-size:0.9rem;font-weight:600;color:var(--text)}
-.proj-detail-body{max-width:900px;margin:0 auto;padding:3.5rem 2rem 5rem}
-.proj-section{margin-bottom:3rem}
-.proj-section-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
-.proj-section-title::before{content:'';display:block;width:3px;height:1.1rem;background:var(--blue);border-radius:2px}
-.proj-text{font-size:0.95rem;color:var(--text2);line-height:1.85}
-.proj-bullets{list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-top:0.5rem}
-.proj-bullets li{font-size:0.925rem;color:var(--text2);padding-left:1.3rem;position:relative;line-height:1.7}
-.proj-bullets li::before{content:'';position:absolute;left:0;top:0.65rem;width:6px;height:6px;background:var(--blue);border-radius:50%}
-.proj-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
-.proj-img-slot{border-radius:12px;border:1.5px dashed var(--border2);overflow:hidden;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:var(--bg2)}
-.proj-img-slot-icon{font-size:1.8rem;opacity:0.3}
-.proj-img-slot-label{font-size:0.75rem;color:var(--text3);letter-spacing:0.04em}
-.outcome-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
-.outcome-card{background:var(--green-bg);border:1px solid #BBF7D0;border-radius:12px;padding:1.3rem;text-align:center}
-.outcome-num{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--green);display:block}
-.outcome-desc{font-size:0.78rem;color:#065F46;margin-top:0.3rem;line-height:1.5}
-.tools-used{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem}
-.tool-chip{font-size:0.8rem;background:var(--blue-light);border:1px solid var(--blue-mid);color:var(--blue);padding:0.35rem 0.85rem;border-radius:6px;font-weight:600}
+.detail-hero{background:linear-gradient(150deg,#F0F6FF 0%,#fff 65%);border-bottom:1px solid var(--border);padding:8rem 2rem 4rem}
+.detail-inner{max-width:960px;margin:0 auto}
+.back-link{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--mono);font-size:0.8rem;font-weight:500;color:var(--blue);cursor:pointer;background:none;border:none;padding:0;margin-bottom:2rem;transition:opacity 0.2s}
+.back-link:hover{opacity:0.65}
+.detail-badge{display:inline-flex;align-items:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--blue);color:#fff;padding:0.28rem 0.8rem;border-radius:5px;margin-bottom:1rem}
+.detail-title{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:var(--text);line-height:1.08;letter-spacing:-0.03em;margin-bottom:1rem}
+.detail-tagline{font-size:1.05rem;color:var(--text2);line-height:1.85;max-width:680px}
+.detail-meta{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border)}
+.meta-item{display:flex;flex-direction:column;gap:0.2rem}
+.meta-label{font-family:var(--mono);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
+.meta-val{font-size:0.9rem;font-weight:600;color:var(--text)}
 
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}.hero-card{display:none}
+.detail-body{max-width:960px;margin:0 auto;padding:4rem 2rem 5rem}
+.d-section{margin-bottom:3.5rem}
+.d-section-h{font-family:var(--display);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:0.65rem}
+.d-section-h::before{content:'';width:3px;height:1.15rem;background:var(--blue);border-radius:2px;display:block;flex-shrink:0}
+.d-text{font-size:0.95rem;color:var(--text2);line-height:1.9}
+.d-bullets{list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-top:0.5rem}
+.d-bullets li{font-size:0.93rem;color:var(--text2);padding-left:1.3rem;position:relative;line-height:1.75}
+.d-bullets li::before{content:'';position:absolute;left:0;top:0.7rem;width:6px;height:6px;background:var(--blue);border-radius:50%}
+.d-outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.d-outcome{background:var(--green-bg);border:1px solid var(--green-border);border-radius:14px;padding:1.5rem;text-align:center}
+.d-outcome-num{font-family:var(--display);font-size:1.7rem;font-weight:800;color:var(--green);display:block}
+.d-outcome-desc{font-size:0.78rem;color:#065F46;margin-top:0.35rem;line-height:1.5}
+.d-tools{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.8rem}
+.d-tool{font-family:var(--mono);font-size:0.78rem;background:var(--blue-light);border:1px solid var(--blue-mid);color:var(--blue);padding:0.35rem 0.9rem;border-radius:6px;font-weight:500}
+.d-img-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1rem}
+.d-img-slot{border-radius:12px;border:1.5px dashed var(--border2);aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:var(--bg2)}
+.d-img-slot-icon{font-size:1.8rem;opacity:0.25}
+.d-img-slot-label{font-family:var(--mono);font-size:0.72rem;color:var(--text3)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}.hero-stat-card{display:none}
+  .pillars-grid{grid-template-columns:1fr}
   .projects-grid{grid-template-columns:repeat(2,1fr)}
-  .highlights-inner{grid-template-columns:repeat(2,1fr)}
-  .outcome-cards{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:640px){
-  .exp-item{grid-template-columns:1fr}.exp-item::before{display:none}.exp-dot{display:none}.exp-left{padding-bottom:0}.exp-right{padding-left:0}
-  .projects-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .cert-grid{grid-template-columns:1fr}
-  .edu-grid{grid-template-columns:1fr}
+  .skills-cols{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
   .contact-inner{grid-template-columns:1fr;gap:3rem}
-  .highlights-inner{grid-template-columns:1fr 1fr}
-  .nav-links{display:none}
-  .proj-img-grid{grid-template-columns:1fr}
-  .outcome-cards{grid-template-columns:1fr}
+  .d-outcomes{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .exp-row{grid-template-columns:1fr}.exp-row::before{display:none}.exp-node{display:none}.exp-left-col{padding-bottom:0}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-cols{grid-template-columns:1fr}
+  .nav-links{display:none}.nav-status{display:none}
+  .d-img-grid{grid-template-columns:1fr}
+  .d-outcomes{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -210,274 +266,326 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.08);text-a
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" onclick="showPage('home')">Gourav Anand</div>
+    <div class="nav-logo" onclick="showPage('home')">
+      <span class="nav-logo-dot"></span> Gourav Anand
+    </div>
     <ul class="nav-links">
       <li><a onclick="goHome('experience')">Experience</a></li>
       <li><a onclick="goHome('projects')">Projects</a></li>
       <li><a onclick="goHome('skills')">Skills</a></li>
       <li><a onclick="goHome('contact')">Contact</a></li>
     </ul>
-    <a href="mailto:gouravthisside@gmail.com" class="nav-cta">Get in Touch</a>
+    <div class="nav-right">
+      <div class="nav-status"><span class="nav-dot"></span>Open to Work</div>
+      <a href="mailto:gouravthisside@gmail.com" class="nav-cta">Get in Touch</a>
+    </div>
   </div>
 </nav>
 
-<!-- ========== HOME PAGE ========== -->
+<!-- ═══════════════ HOME PAGE ═══════════════ -->
 <div id="page-home" class="page active">
 
-  <div class="hero-wrap">
-    <div class="hero">
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero-inner">
       <div>
-        <div class="hero-eyebrow">
-          <span style="width:7px;height:7px;background:var(--green);border-radius:50%;display:inline-block"></span>
-          People Operations Specialist
-        </div>
-        <h1>
-          <span class="line">HR Ops that runs</span>
-          <span class="line blue">on systems,</span>
-          <span class="line">not spreadsheets.</span>
+
+
+        <div class="hero-eyebrow">people-ops · automation · analytics</div>
+        <h1 class="hero-h1">
+          The future of HR is<br/>
+          <span class="blue"><span class="underline-anim">data, automation</span></span><br/>
+          and people - together.
         </h1>
-        <p class="hero-sub">2.6 years owning people operations for 800+ employees across India, UK & Sri Lanka — from payroll and lifecycle management to HRMS governance and automation tools that actually get adopted.</p>
+        <p class="hero-sub">I'm Gourav - a People Ops Specialist who doesn't just run HR processes. I <strong>redesign them</strong>, <strong>automate them</strong>, and <strong>measure them</strong> - across 800+ employees in India, UK & Sri Lanka.</p>
+        <div class="hero-pills">
+          <span class="hero-pill active-pill">Workday HCM</span>
+          <span class="hero-pill active-pill">SAP SuccessFactors</span>
+          <span class="hero-pill active-pill">Power BI</span>
+          <span class="hero-pill">ServiceNow</span>
+          <span class="hero-pill">HR Automation</span>
+          <span class="hero-pill">SOP Design</span>
+        </div>
         <div class="hero-actions">
-          <a href="mailto:gouravthisside@gmail.com" class="btn-primary">✉ Get in Touch</a>
-          <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="btn-ghost">in LinkedIn</a>
-          <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-download">↓ Resume</a>
+          <a href="mailto:gouravthisside@gmail.com" class="btn-blue">✉ Get in Touch</a>
+          <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-ghost-dl">↓ Resume</a>
+          <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="btn-outline">in LinkedIn</a>
         </div>
       </div>
       <div>
-        <div class="hero-card">
-          <div class="hero-card-title">At a glance</div>
-          <div class="stat-row">
-            <div class="stat-box blue-bg"><span class="stat-num" data-target="800">0</span><div class="stat-label">Employees Managed</div></div>
-            <div class="stat-box blue-bg"><span class="stat-num" data-target="3">0</span><div class="stat-label">Countries</div></div>
+        <div class="hero-stat-card">
+          <div class="hero-card-title" style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1.2rem">impact_metrics.json</div>
+          <div class="stat-grid">
+            <div class="stat-cell highlight"><span class="stat-big" data-target="800">0</span><div class="stat-desc">Employees</div></div>
+            <div class="stat-cell highlight"><span class="stat-big" data-target="3">0</span><div class="stat-desc">Countries</div></div>
+            <div class="stat-cell"><span class="stat-big">80%</span><div class="stat-desc">TAT Reduction</div></div>
+            <div class="stat-cell"><span class="stat-big" style="font-size:1.1rem;padding-top:0.3rem">HR Automation</span><div class="stat-desc">Process Owner</div></div>
           </div>
-          <div class="stat-row">
-            <div class="stat-box"><span class="stat-num">80%</span><div class="stat-label">TAT Reduction</div></div>
-            <div class="stat-box"><span class="stat-num" style="font-size:1.1rem;padding-top:0.3rem">HR Auto&shy;mation</span><div class="stat-label">Process Owner</div></div>
-          </div>
-          <div class="avail-strip">
-            <span class="avail-dot"></span>
-            <div class="avail-text">Open to Opportunities</div>
+          <div class="open-badge">
+            <span class="open-dot"></span>
+            <span class="open-text">Open to Opportunities</span>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HIGHLIGHTS BAR -->
-  <div class="highlights">
-    <div class="highlights-inner">
-      <div class="hl-item"><span class="hl-num" data-target="800">0</span><div class="hl-label">Employees Managed</div></div>
-      <div class="hl-item"><span class="hl-num">3</span><div class="hl-label">Countries</div></div>
-      <div class="hl-item"><span class="hl-num">80%</span><div class="hl-label">Process TAT Reduction</div></div>
-      <div class="hl-item"><span class="hl-num" style="font-size:1.4rem;padding-top:0.4rem">HR Automation</span><div class="hl-label">Process Owner</div></div>
+  <!-- THREE PILLARS -->
+  <div class="pillars-section">
+    <div class="pillars-inner">
+      <div class="pillars-label">// what I bring</div>
+      <div class="pillars-title">Built for the next era of HR.</div>
+      <p class="pillars-sub">Not just compliance and forms. I operate at the intersection of people, process, and technology.</p>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-num">01 /</div>
+          <span class="pillar-icon">📊</span>
+          <div class="pillar-title">Data & Analytics</div>
+          <p class="pillar-desc">Real-time dashboards, workforce analytics, and HR MIS that replace gut-feel decisions with live visibility.</p>
+          <div class="pillar-tags"><span class="p-tag">Power BI</span><span class="p-tag">DAX</span><span class="p-tag">MIS Reporting</span><span class="p-tag">Attrition</span></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02 /</div>
+          <span class="pillar-icon">⚙️</span>
+          <div class="pillar-title">Automation</div>
+          <p class="pillar-desc">HR tools that eliminate manual work - letter generation, workflow tracking, bulk operations - built and shipped.</p>
+          <div class="pillar-tags"><span class="p-tag">SOP Design</span><span class="p-tag">Mail Merge</span><span class="p-tag">Power Automate</span><span class="p-tag">DOCX Engine</span></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03 /</div>
+          <span class="pillar-icon">🤝</span>
+          <div class="pillar-title">People Operations</div>
+          <p class="pillar-desc">Multi-geo lifecycle management, payroll governance, HRMS ownership, and employee experience - end to end.</p>
+          <div class="pillar-tags"><span class="p-tag">Workday</span><span class="p-tag">SAP SF</span><span class="p-tag">Lifecycle</span><span class="p-tag">F&F Settlement</span></div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- EXPERIENCE -->
-  <div class="section-wrap" id="experience">
-    <div class="section-label">Experience</div>
-    <div class="section-title">Where I've worked</div>
-    <p class="section-sub">Roles where I owned processes end-to-end — not just executed tasks.</p>
-    <div class="exp-list">
+  <div class="section-outer" id="experience">
+    <div class="section-inner">
+      <div class="section-eyebrow">// experience</div>
+      <div class="section-h2">Where I've worked</div>
+      <p class="section-sub">Roles where I owned outcomes, not just tasks.</p>
+      <div class="exp-timeline">
 
-      <div class="exp-item">
-        <div class="exp-left"><div class="exp-dot"></div><div class="exp-date">Nov 2024<br/>Present</div></div>
-        <div class="exp-right">
-          <div class="exp-badge">Current Role</div>
-          <div class="exp-title">HR Operations – People Connect</div>
-          <div class="exp-company">ParentPay India Pvt. Ltd.</div>
-          <div class="exp-scope">800+ employees · India, UK & Sri Lanka</div>
-          <ul class="exp-bullets">
-            <li>Own end-to-end Employee Lifecycle SOPs — onboarding, confirmations, transfers, exits — ensuring 100% SLA adherence across three countries.</li>
-            <li>Manage HRMS data integrity and role-based access governance across Workday, SAP SuccessFactors, and ServiceNow.</li>
-            <li>Run monthly payroll operations: input validation, statutory checks, benefits processing, and Full & Final settlements.</li>
-            <li>Serve as Insurance SPOC — redesigned claim escalation SOP, improving resolution TAT by 80%.</li>
-            <li>Build and maintain HR MIS dashboards tracking workforce movement, attrition, hiring TAT, and SLA compliance.</li>
-            <li>Led HRMS workflow improvements reducing post-joining documentation TAT by 80%.</li>
-            <li>Maintain audit-ready employee, benefits, and BGV records with zero audit deviations.</li>
-            <li>Primary SPOC for all employee queries — 100% case resolution within defined SLAs.</li>
-          </ul>
+        <div class="exp-row reveal">
+          <div class="exp-left-col">
+            <div class="exp-node"></div>
+            <div class="exp-date-label">Nov 2024<br/>Present</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role-badge">🟢 Current</div>
+            <div class="exp-role">HR Operations – People Connect</div>
+            <div class="exp-org">ParentPay India Pvt. Ltd.</div>
+            <div class="exp-scope-chip">800+ employees · India, UK & Sri Lanka</div>
+            <ul class="exp-list-items">
+              <li>Own end-to-end Employee Lifecycle SOPs - onboarding, confirmations, transfers, exits - ensuring 100% SLA adherence across three countries.</li>
+              <li>Manage HRMS data integrity and role-based access governance across Workday, SAP SuccessFactors, and ServiceNow.</li>
+              <li>Run monthly payroll operations: input validation, statutory checks, benefits processing, and Full & Final settlements.</li>
+              <li>Serve as Insurance SPOC - redesigned claim escalation SOP, improving resolution TAT by 80%.</li>
+              <li>Build and maintain HR MIS dashboards tracking workforce movement, attrition, hiring TAT, and SLA compliance.</li>
+              <li>Led HRMS workflow improvements reducing post-joining documentation TAT by 80%.</li>
+              <li>Maintain audit-ready employee, benefits, and BGV records with zero audit deviations.</li>
+              <li>Primary SPOC for all employee queries - 100% case resolution within defined SLAs.</li>
+            </ul>
+          </div>
         </div>
-      </div>
 
-      <div class="exp-item" style="margin-bottom:0">
-        <div class="exp-left"><div class="exp-dot"></div><div class="exp-date">Jun 2022<br/>May 2023</div></div>
-        <div class="exp-right">
-          <div class="exp-title">HR Executive – Recruitment & HRMS Operations</div>
-          <div class="exp-company">Bubble Creations Digital Studio Pvt. Ltd.</div>
-          <ul class="exp-bullets">
-            <li>Managed end-to-end recruitment lifecycle and tracked pipeline in Workday HCM.</li>
-            <li>Executed onboarding operations in Workday — employee profiles, job details, compensation data entry.</li>
-            <li>Processed lifecycle transactions: job changes, compensation revisions, terminations.</li>
-            <li>Coordinated payroll input validation and generated workforce reports for manpower planning.</li>
-          </ul>
+        <div class="exp-row reveal">
+          <div class="exp-left-col">
+            <div class="exp-node"></div>
+            <div class="exp-date-label">Jun 2022<br/>May 2023</div>
+          </div>
+          <div class="exp-body">
+            <div class="exp-role">HR Executive – Recruitment & HRMS Operations</div>
+            <div class="exp-org">Bubble Creations Digital Studio Pvt. Ltd.</div>
+            <ul class="exp-list-items">
+              <li>Managed end-to-end recruitment lifecycle and pipeline tracking in Workday HCM.</li>
+              <li>Executed onboarding operations in Workday - employee profiles, job details, compensation data.</li>
+              <li>Processed lifecycle transactions: job changes, compensation revisions, terminations.</li>
+              <li>Coordinated payroll input validation and generated workforce reports for manpower planning.</li>
+            </ul>
+          </div>
         </div>
+
       </div>
 
-    </div>
-
-    <!-- INTERNSHIP TOGGLE -->
-    <div class="internship-toggle" onclick="toggleInternships(this)">
-      <span class="internship-toggle-icon" id="intern-icon">▼</span>
-      <span class="internship-toggle-label">Show Internship Experience (2)</span>
-    </div>
-    <div class="internship-list" id="internship-list">
-      <div class="intern-item">
-        <div class="intern-badge">Internship</div>
-        <div class="intern-date">Jun – Aug 2024</div>
-        <div class="intern-role">HR Generalist Intern</div>
-        <div class="intern-company">Coca-Cola India</div>
+      <div class="intern-toggle-btn" onclick="toggleIntern(this)">
+        <span class="intern-toggle-icon" id="intern-icon">▼</span>
+        <span class="intern-toggle-label">Show Internship Experience (2)</span>
       </div>
-      <div class="intern-item">
-        <div class="intern-badge">Internship</div>
-        <div class="intern-date">Dec 2023 – Jan 2024</div>
-        <div class="intern-role">HR Generalist Intern</div>
-        <div class="intern-company">Brintons</div>
+      <div class="intern-panel" id="intern-panel">
+        <div class="intern-entry">
+          <div class="intern-badge">Internship</div>
+          <div class="intern-date">Jun – Aug 2024</div>
+          <div class="intern-role">HR Generalist Intern</div>
+          <div class="intern-org">Coca-Cola India</div>
+        </div>
+        <div class="intern-entry">
+          <div class="intern-badge">Internship</div>
+          <div class="intern-date">Dec 2023 – Jan 2024</div>
+          <div class="intern-role">HR Generalist Intern</div>
+          <div class="intern-org">Brintons</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- PROJECTS -->
-  <div class="section-wrap" id="projects">
-    <div class="section-label">Automation & Analytics Projects</div>
-    <div class="section-title">Tools I built. Still in use.</div>
-    <p class="section-sub">Click any project card to see the full details, outcomes, and screenshots.</p>
-    <div class="projects-grid">
+  <div class="section-outer" id="projects">
+    <div class="section-inner">
+      <div class="section-eyebrow">// automation & analytics projects</div>
+      <div class="section-h2">Tools I built. Still in use.</div>
+      <p class="section-sub">Click any card - see the full build, the problem it solved, and the impact it made.</p>
+      <div class="projects-grid">
 
-      <div class="project-card" onclick="openProject('letters')">
-        <div class="project-img" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
-          <div class="project-img-icon">📄</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">Letter Automation</div>
+        <div class="proj-card reveal" onclick="openProject('letters')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#EEF2FF,#E0E7FF)">
+            <div class="proj-thumb-icon">📄</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">Letter Automation</div>
+            <div class="proj-status-chip">✅ Live</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">HR Letter Management System</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Browser-based DOCX mail-merge dashboard unifying Increment, Promotion & Appointment Letters - adopted as team standard.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ Team Standard</div></div>
+          </div>
         </div>
-        <div class="project-body">
-          <div class="project-title">HR Letter Management System</div>
-          <div class="project-desc-short">Browser-based DOCX mail-merge dashboard unifying Increment, Promotion & Appointment Letters — adopted as team standard.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ Team Standard</div><div class="project-arrow">View →</div></div>
+
+        <div class="proj-card reveal" onclick="openProject('probation')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
+            <div class="proj-thumb-icon">🔄</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">Workflow Design</div>
+            <div class="proj-status-chip">✅ Deployed</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">Probation Management Workflow</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Zero-manual-intervention probation tracking with full SOP and cross-team flow diagram for rollout.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ Zero manual work</div></div>
+          </div>
         </div>
+
+        <div class="proj-card reveal" onclick="openProject('payroll')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
+            <div class="proj-thumb-icon">⚙️</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">Payroll Automation</div>
+            <div class="proj-status-chip">✅ Done</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">Bulk Pay Restructuring Automation</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Mail-merge automation generating 500+ individualized letters from a single Excel source. Zero manual effort.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ 500+ letters</div></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" onclick="openProject('survey')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF)">
+            <div class="proj-thumb-icon">📊</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">HR Analytics</div>
+            <div class="proj-status-chip">✅ Delivered</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">Pre-Joining Survey Analytics</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Analyzed 322 candidate records to surface pre-joining friction. Interactive HTML report delivered to leadership.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ 322 records</div></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" onclick="openProject('dashboard')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+            <div class="proj-thumb-icon">📈</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">Dashboard</div>
+            <div class="proj-status-chip">✅ Live</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">Active Workforce Dashboard</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Live Power BI dashboard with automated refresh tracking headcount, attrition, and hiring trends.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ Real-time visibility</div></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal" onclick="openProject('chatbot')">
+          <div class="proj-thumb" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6)">
+            <div class="proj-thumb-icon">🤖</div>
+            <div class="proj-thumb-hint">click to open</div>
+            <div class="proj-type-chip">AI Tool</div>
+            <div class="proj-status-chip">✅ Live</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title-row"><div class="proj-name">AI-Powered HR Chatbot</div><div class="proj-card-arrow">→</div></div>
+            <div class="proj-short">Fully functional AI chatbot handling HR queries on policies, leave, and processes - round the clock.</div>
+            <div class="proj-footer"><div class="proj-outcome">✦ Reduced query load</div></div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="project-card" onclick="openProject('probation')">
-        <div class="project-img" style="background:linear-gradient(135deg,#F0FDF4,#DCFCE7)">
-          <div class="project-img-icon">🔄</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">Workflow Design</div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Probation Management Workflow</div>
-          <div class="project-desc-short">Zero-manual-intervention probation tracking workflow with full SOP and cross-team flow diagram.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ Zero manual work</div><div class="project-arrow">View →</div></div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProject('payroll')">
-        <div class="project-img" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
-          <div class="project-img-icon">⚙️</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">Payroll Automation</div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Bulk Pay Restructuring Automation</div>
-          <div class="project-desc-short">Mail-merge automation generating 500+ individualized letters from a single Excel source — zero manual effort.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ 500+ letters</div><div class="project-arrow">View →</div></div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProject('survey')">
-        <div class="project-img" style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF)">
-          <div class="project-img-icon">📊</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">HR Analytics</div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Pre-Joining Survey Analytics</div>
-          <div class="project-desc-short">Analyzed 322 candidate records to surface friction in pre-joining. Interactive report delivered to leadership.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ 322 records</div><div class="project-arrow">View →</div></div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProject('dashboard')">
-        <div class="project-img" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
-          <div class="project-img-icon">📈</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">Dashboard</div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">Active Workforce Dashboard</div>
-          <div class="project-desc-short">Live Power BI dashboard with automated refresh tracking headcount, attrition, and hiring trends for leadership.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ Real-time visibility</div><div class="project-arrow">View →</div></div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openProject('chatbot')">
-        <div class="project-img" style="background:linear-gradient(135deg,#FFF1F2,#FFE4E6)">
-          <div class="project-img-icon">🤖</div>
-          <div class="project-img-hint">Click to view project</div>
-          <div class="project-type-badge">AI Tool</div>
-        </div>
-        <div class="project-body">
-          <div class="project-title">AI-Powered HR Chatbot</div>
-          <div class="project-desc-short">Fully functional AI chatbot handling common HR queries on policies, leave, and processes — round the clock.</div>
-          <div class="project-footer"><div class="project-outcome-pill">✦ Reduced query load</div><div class="project-arrow">View →</div></div>
-        </div>
-      </div>
-
     </div>
   </div>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
   <!-- SKILLS -->
-  <div class="section-wrap" id="skills">
-    <div class="section-label">Skills & Tools</div>
-    <div class="section-title">What I bring to the role</div>
-    <p class="section-sub">Deep in HR Ops fundamentals. Sharper than most on tools, data, and process design.</p>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">⚙ HR Operations</div>
-        <div class="skill-tags"><span class="skill-tag">Employee Lifecycle Management</span><span class="skill-tag">Onboarding</span><span class="skill-tag">Full & Final Settlement</span><span class="skill-tag">Payroll Inputs</span><span class="skill-tag">BGV Management</span><span class="skill-tag">Statutory Compliance</span><span class="skill-tag">Benefits Administration</span><span class="skill-tag">SLA Management</span></div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">🖥 HRMS Platforms</div>
-        <div class="skill-tags"><span class="skill-tag">Workday HCM</span><span class="skill-tag">SAP SuccessFactors</span><span class="skill-tag">ServiceNow</span><span class="skill-tag">HRMS Data Management</span><span class="skill-tag">Access Governance</span><span class="skill-tag">Employee Master Data</span></div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">📊 Analytics & Reporting</div>
-        <div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">Advanced Excel</span><span class="skill-tag">HR MIS Reporting</span><span class="skill-tag">DAX</span><span class="skill-tag">Pivot Tables</span><span class="skill-tag">Workforce Dashboards</span><span class="skill-tag">Attrition Analytics</span></div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">🔁 Process & Automation</div>
-        <div class="skill-tags"><span class="skill-tag">SOP Design & Ownership</span><span class="skill-tag">Process Documentation</span><span class="skill-tag">Workflow Automation</span><span class="skill-tag">Power Automate</span><span class="skill-tag">Mail Merge Automation</span><span class="skill-tag">HR Tool Building</span></div>
+  <div class="skills-section section-outer" id="skills">
+    <div class="section-inner">
+      <div class="section-eyebrow">// skills & tools</div>
+      <div class="section-h2">What I bring to the role</div>
+      <p class="section-sub">Deep in HR Ops fundamentals. Sharper than most on tools, data, and process design.</p>
+      <div class="skills-cols">
+        <div>
+          <div class="skill-col-title">HR Operations</div>
+          <div class="skill-tags-wrap"><span class="s-tag">Employee Lifecycle</span><span class="s-tag">Onboarding</span><span class="s-tag">F&F Settlement</span><span class="s-tag">Payroll Inputs</span><span class="s-tag">BGV</span><span class="s-tag">Statutory Compliance</span><span class="s-tag">Benefits Admin</span><span class="s-tag">SLA Management</span></div>
+        </div>
+        <div>
+          <div class="skill-col-title">HRMS Platforms</div>
+          <div class="skill-tags-wrap"><span class="s-tag">Workday HCM</span><span class="s-tag">SAP SF</span><span class="s-tag">ServiceNow</span><span class="s-tag">HRMS Data Mgmt</span><span class="s-tag">Access Governance</span><span class="s-tag">Master Data</span></div>
+        </div>
+        <div>
+          <div class="skill-col-title">Analytics</div>
+          <div class="skill-tags-wrap"><span class="s-tag">Power BI</span><span class="s-tag">Advanced Excel</span><span class="s-tag">HR MIS</span><span class="s-tag">DAX</span><span class="s-tag">Pivot Tables</span><span class="s-tag">Workforce Analytics</span><span class="s-tag">Attrition</span></div>
+        </div>
+        <div>
+          <div class="skill-col-title">Automation</div>
+          <div class="skill-tags-wrap"><span class="s-tag">SOP Design</span><span class="s-tag">Process Documentation</span><span class="s-tag">Workflow Automation</span><span class="s-tag">Power Automate</span><span class="s-tag">Mail Merge</span><span class="s-tag">HR Tool Building</span></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="section-divider"></div>
+  <div class="divider"></div>
 
-  <!-- EDUCATION -->
-  <div class="section-wrap" style="padding-bottom:2rem">
-    <div class="section-label">Education</div>
-    <div class="section-title">Academic background</div>
-    <div style="margin-bottom:2rem"></div>
-    <div class="edu-grid">
-      <div class="edu-item"><div class="edu-icon">🎓</div><div><div class="edu-year">2023 – 2025</div><div class="edu-degree">PGDM – HR Analytics</div><div class="edu-school">Pune Institute of Business Management</div><div class="edu-cgpa">8.0 CGPA</div></div></div>
-      <div class="edu-item"><div class="edu-icon">🎓</div><div><div class="edu-year">2019 – 2022</div><div class="edu-degree">BBA – Human Resources</div><div class="edu-school">Arka Jain University</div><div class="edu-cgpa">7.89 CGPA</div></div></div>
-    </div>
-  </div>
-
-  <!-- CERTIFICATIONS -->
-  <div class="section-wrap" style="padding-top:2rem">
-    <div class="section-label">Certifications</div>
-    <div class="section-title">Continuous learning</div>
-    <div style="margin-bottom:2rem"></div>
-    <div class="cert-grid">
-      <div class="cert-item"><div class="cert-issuer">IIT Kharagpur · NPTEL</div><div class="cert-name">Strategic Management for Competitive Advantage</div></div>
-      <div class="cert-item"><div class="cert-issuer">Great Learning</div><div class="cert-name">Data Visualization with Power BI</div></div>
-      <div class="cert-item"><div class="cert-issuer">Great Learning</div><div class="cert-name">Compensation Management</div></div>
-      <div class="cert-item"><div class="cert-issuer">LinkedIn Learning</div><div class="cert-name">Excel: Advanced Formulas & Functions</div></div>
-      <div class="cert-item"><div class="cert-issuer">LinkedIn Learning</div><div class="cert-name">Managing Employee Problems</div></div>
+  <!-- EDU + CERT -->
+  <div class="section-outer">
+    <div class="section-inner">
+      <div class="two-col">
+        <div>
+          <div class="section-eyebrow">// education</div>
+          <div class="section-h2" style="font-size:1.5rem;margin-bottom:1.5rem">Academic background</div>
+          <div class="edu-list">
+            <div class="edu-card"><div class="edu-icon">🎓</div><div><div class="edu-year">2023 – 2025</div><div class="edu-deg">PGDM – HR Analytics</div><div class="edu-school">Pune Institute of Business Management</div><div class="edu-gpa">8.0 CGPA</div></div></div>
+            <div class="edu-card"><div class="edu-icon">🎓</div><div><div class="edu-year">2019 – 2022</div><div class="edu-deg">BBA – Human Resources</div><div class="edu-school">Arka Jain University</div><div class="edu-gpa">7.89 CGPA</div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="section-eyebrow">// certifications</div>
+          <div class="section-h2" style="font-size:1.5rem;margin-bottom:1.5rem">Continuous learning</div>
+          <div class="cert-list">
+            <div class="cert-row"><div class="cert-icon">🏛</div><div><div class="cert-issuer">IIT Kharagpur · NPTEL</div><div class="cert-name">Strategic Management for Competitive Advantage</div></div></div>
+            <div class="cert-row"><div class="cert-icon">📊</div><div><div class="cert-issuer">Great Learning</div><div class="cert-name">Data Visualization with Power BI</div></div></div>
+            <div class="cert-row"><div class="cert-icon">💼</div><div><div class="cert-issuer">Great Learning</div><div class="cert-name">Compensation Management</div></div></div>
+            <div class="cert-row"><div class="cert-icon">📗</div><div><div class="cert-issuer">LinkedIn Learning</div><div class="cert-name">Excel: Advanced Formulas & Functions</div></div></div>
+            <div class="cert-row"><div class="cert-icon">🤝</div><div><div class="cert-issuer">LinkedIn Learning</div><div class="cert-name">Managing Employee Problems</div></div></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -485,170 +593,160 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.08);text-a
   <div class="contact-section" id="contact">
     <div class="contact-inner">
       <div>
-        <div class="contact-title">Let's build<br/><span>better HR ops</span><br/>together.</div>
-        <p class="contact-sub">Targeting HR Operations, People Operations, or HR Analytics roles in tech companies, GCCs, or MNCs. Open to Pune, Hyderabad & Bangalore.</p>
-        <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-download" style="background:transparent;border-color:rgba(255,255,255,0.3);color:#fff;margin-top:0.5rem">↓ Download Resume</a>
+        <div class="contact-label">// let's connect</div>
+        <h2 class="contact-h2">Ready to build the<br/><span>future of HR</span><br/>with you.</h2>
+        <p class="contact-desc">Looking for HR Operations, People Operations, or HR Analytics roles in tech companies, GCCs, or MNCs. Open to Pune, Hyderabad & Bangalore.</p>
+        <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-ghost-dl" style="background:transparent;border-color:rgba(255,255,255,0.25);color:#fff;margin-top:0.5rem">↓ Download Resume</a>
       </div>
-      <div class="contact-links">
-        <a href="mailto:gouravthisside@gmail.com" class="contact-link">
-          <div class="contact-link-icon">✉</div>
-          <div><div style="font-weight:600;font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:0.1rem">EMAIL</div>gouravthisside@gmail.com</div>
+      <div class="contact-cards">
+        <a href="mailto:gouravthisside@gmail.com" class="contact-card">
+          <div class="contact-card-icon">✉</div>
+          <div><div class="contact-card-label">Email</div><div class="contact-card-val">gouravthisside@gmail.com</div></div>
         </a>
-        <a href="tel:+917273848078" class="contact-link">
-          <div class="contact-link-icon">📞</div>
-          <div><div style="font-weight:600;font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:0.1rem">PHONE</div>+91 7273848078</div>
+        <a href="tel:+917273848078" class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div><div class="contact-card-label">Phone</div><div class="contact-card-val">+91 7273848078</div></div>
         </a>
-        <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="contact-link">
-          <div class="contact-link-icon" style="font-weight:800;font-size:0.85rem">in</div>
-          <div><div style="font-weight:600;font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:0.1rem">LINKEDIN</div>linkedin.com/in/hrgouravanand</div>
+        <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="contact-card">
+          <div class="contact-card-icon" style="font-weight:800;font-size:0.9rem">in</div>
+          <div><div class="contact-card-label">LinkedIn</div><div class="contact-card-val">linkedin.com/in/hrgouravanand</div></div>
         </a>
-        <div class="contact-link" style="cursor:default">
-          <div class="contact-link-icon">📍</div>
-          <div><div style="font-weight:600;font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:0.1rem">LOCATION</div>Pune, Maharashtra, India</div>
+        <div class="contact-card" style="cursor:default">
+          <div class="contact-card-icon">📍</div>
+          <div><div class="contact-card-label">Location</div><div class="contact-card-val">Pune, Maharashtra, India</div></div>
         </div>
       </div>
     </div>
   </div>
-  <footer>Gourav Anand · People Operations Specialist · Pune</footer>
+  <footer>// gourav.anand · people-ops · automation · analytics · pune</footer>
 </div>
 
-<!-- ========== PROJECT DETAIL PAGE ========== -->
+<!-- ═══════════════ PROJECT DETAIL ═══════════════ -->
 <div id="page-project" class="page">
-  <div class="proj-detail-hero">
-    <div class="proj-detail-inner">
-      <button class="back-btn" onclick="showPage('home')">← Back to Portfolio</button>
-      <div id="proj-badge" class="proj-detail-badge"></div>
-      <div id="proj-title" class="proj-detail-title"></div>
-      <div id="proj-tagline" class="proj-detail-tagline"></div>
-      <div class="proj-meta-bar" id="proj-meta"></div>
+  <div class="detail-hero">
+    <div class="detail-inner">
+      <button class="back-link" onclick="showPage('home')">← back to portfolio</button>
+      <div id="d-badge" class="detail-badge"></div>
+      <div id="d-title" class="detail-title"></div>
+      <div id="d-tagline" class="detail-tagline"></div>
+      <div id="d-meta" class="detail-meta"></div>
     </div>
   </div>
-  <div class="proj-detail-body">
-    <div id="proj-content"></div>
-    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap">
-      <button class="btn-primary" onclick="showPage('home')" style="cursor:pointer">← Back to Portfolio</button>
-      <a href="mailto:gouravthisside@gmail.com" class="btn-ghost">Ask me about this project</a>
+  <div class="detail-body">
+    <div id="d-content"></div>
+    <div style="margin-top:3.5rem;padding-top:2rem;border-top:1px solid var(--border);display:flex;gap:1rem;flex-wrap:wrap">
+      <button class="btn-blue" onclick="showPage('home')" style="cursor:pointer">← Back to Portfolio</button>
+      <a href="mailto:gouravthisside@gmail.com" class="btn-outline">Ask me about this project</a>
     </div>
   </div>
 </div>
 
 <script>
-const projects={
-  letters:{badge:'Letter Automation',title:'HR Letter Management System',tagline:'A browser-based, fully offline DOCX mail-merge dashboard that unified Increment, Promotion, and Appointment Letter generation into one tool — adopted as the standard process by the People Connect team.',
-    meta:[{label:'Type',value:'Process Automation Tool'},{label:'Platform',value:'Browser-based (Offline)'},{label:'Status',value:'✅ In Active Use'},{label:'Scope',value:'People Connect Team'}],
+const PD={
+  letters:{badge:'Letter Automation',title:'HR Letter Management System',tagline:'A browser-based, fully offline DOCX mail-merge dashboard that unified Increment, Promotion, and Appointment Letter generation - adopted as the standard process by the People Connect team.',
+    meta:[{l:'Type',v:'Process Automation Tool'},{l:'Platform',v:'Browser-based · Offline'},{l:'Status',v:'✅ In Active Use'},{l:'Scope',v:'People Connect Team'}],
     sections:[
-      {type:'text',title:'The Problem',body:'The team was generating HR letters manually — opening templates, editing names and dates one by one, saving individual files. For Increment cycles or bulk onboarding, this took hours and introduced formatting errors, watermark loss, and brand inconsistencies.'},
-      {type:'bullets',title:'What I Built',items:['Single browser-based dashboard combining Increment, Promotion, and Appointment Letter generation','DOCX mail-merge at the XML level — preserves formatting, watermarks, and brand fonts exactly','No internet, no Word, no installation required — runs entirely offline in the browser','Bulk generation: upload employee data, generate all letters in one click','Consistent output every time — zero manual formatting errors']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'100%',desc:'Formatting accuracy across all letter types'},{num:'Zero',desc:'Manual letter edits needed post-generation'},{num:'Team',desc:'Adopted as standard by People Connect'}]},
-      {type:'tools',title:'Tools Used',tools:['DOCX XML Manipulation','JSZip','Browser APIs','HR Process Design','Mail Merge Logic']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]},
-  probation:{badge:'Workflow Design',title:'Probation Management Workflow',tagline:'Designed a zero-manual-intervention probation tracking system — from joining to confirmation — with a complete SOP and cross-functional flow diagram for team rollout.',
-    meta:[{label:'Type',value:'Workflow & SOP Design'},{label:'Format',value:'SOP + Flow Diagram'},{label:'Status',value:'✅ Deployed'},{label:'Manual Effort',value:'Zero'}],
+      {t:'text',h:'The Problem',b:'The team generated HR letters manually - opening templates, editing one by one, saving files individually. For Increment cycles or bulk onboarding, this took hours and introduced formatting errors, watermark loss, and brand inconsistencies.'},
+      {t:'bullets',h:'What I Built',i:['Single browser-based dashboard combining Increment, Promotion, and Appointment Letter generation','DOCX mail-merge at the XML level - preserves formatting, watermarks, and brand fonts exactly','No internet, no Word, no installation required - runs entirely offline in the browser','Bulk generation: upload employee data, generate all letters in one click','Consistent output every time - zero manual formatting errors']},
+      {t:'outcomes',h:'Impact',o:[{n:'100%',d:'Formatting accuracy across all letter types'},{n:'Zero',d:'Manual edits needed post-generation'},{n:'Team',d:'Adopted as standard by People Connect'}]},
+      {t:'tools',h:'Tools Used',tools:['DOCX XML Manipulation','JSZip','Browser APIs','HR Process Design','Mail Merge Logic']},
+      {t:'images',h:'Project Screenshots',c:2}]},
+  probation:{badge:'Workflow Design',title:'Probation Management Workflow',tagline:'Designed a zero-manual-intervention probation tracking system - from joining to confirmation - with a complete SOP and cross-functional flow diagram for team rollout.',
+    meta:[{l:'Type',v:'Workflow & SOP Design'},{l:'Format',v:'SOP + Flow Diagram'},{l:'Status',v:'✅ Deployed'},{l:'Manual Effort',v:'Zero'}],
     sections:[
-      {type:'text',title:'The Problem',body:'Probation confirmations were tracked manually via spreadsheets and reminders — leading to missed deadlines, delayed confirmation letters, and compliance risks. There was no automated trigger system in place.'},
-      {type:'bullets',title:'What I Built',items:['End-to-end probation workflow mapped from Day 1 joining to confirmation/extension/exit decision','Automated reminder triggers at 30, 60, and 90-day milestones','Clear escalation logic for non-responsive managers','SOP document for HR team and a flow diagram for cross-team alignment with IT and Business','Eliminated 100% of manual follow-up effort for confirmation tracking']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'0',desc:'Manual follow-ups needed post-implementation'},{num:'100%',desc:'On-time confirmation rate after rollout'},{num:'Cross',desc:'Functional alignment across HR, IT & Business'}]},
-      {type:'tools',title:'Tools Used',tools:['Process Mapping','SOP Design','PowerPoint','Workflow Automation Logic','Stakeholder Management']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]},
-  payroll:{badge:'Payroll Automation',title:'Bulk Pay Restructuring Automation',tagline:'Built an automation system that generated 500+ individualized pay restructuring letters from a single Excel source — solving template, mapping, and file-path challenges at scale.',
-    meta:[{label:'Type',value:'Document Automation'},{label:'Volume',value:'500+ Letters'},{label:'Source',value:'Excel Data'},{label:'Status',value:'✅ Completed'}],
+      {t:'text',h:'The Problem',b:'Probation confirmations were tracked manually - via spreadsheets and reminders - leading to missed deadlines, delayed letters, and compliance risks. No automated trigger system existed.'},
+      {t:'bullets',h:'What I Built',i:['End-to-end probation workflow mapped from Day 1 joining to confirmation/extension/exit decision','Automated reminder triggers at 30, 60, and 90-day milestones','Clear escalation logic for non-responsive managers','SOP document for HR team and a flow diagram for cross-team alignment with IT and Business','Eliminated 100% of manual follow-up effort']},
+      {t:'outcomes',h:'Impact',o:[{n:'0',d:'Manual follow-ups needed post-implementation'},{n:'100%',d:'On-time confirmation rate after rollout'},{n:'Cross',d:'Functional alignment across HR, IT & Business'}]},
+      {t:'tools',h:'Tools Used',tools:['Process Mapping','SOP Design','PowerPoint','Workflow Logic','Stakeholder Management']},
+      {t:'images',h:'Project Screenshots',c:2}]},
+  payroll:{badge:'Payroll Automation',title:'Bulk Pay Restructuring Automation',tagline:'Built an automation system that generated 500+ individualized pay restructuring letters from a single Excel source - solving template, mapping, and file-path challenges at scale.',
+    meta:[{l:'Type',v:'Document Automation'},{l:'Volume',v:'500+ Letters'},{l:'Source',v:'Excel Data'},{l:'Status',v:'✅ Completed'}],
     sections:[
-      {type:'text',title:'The Problem',body:'A company-wide pay restructuring required issuing 500+ personalized letters — each with different CTC components, revised breakdowns, and employee-specific data. Manual generation would have taken days and risked errors.'},
-      {type:'bullets',title:'What I Built',items:['Mail-merge automation pulling from structured Excel employee data','Dynamic template mapping — each letter auto-populated with correct name, designation, CTC components','Resolved multi-level technical issues: OneDrive file-locking, column-mapping mismatches, template path errors','Batch processing — all 500+ letters generated in one run','Individual file output per employee, named automatically']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'500+',desc:'Letters generated without manual editing'},{num:'~0',desc:'Errors in final letter output'},{num:'Days',desc:'Of manual work eliminated in one automation'}]},
-      {type:'tools',title:'Tools Used',tools:['Mail Merge Automation','Excel Data Management','DOCX Template Design','Batch Processing','Error Resolution']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]},
-  survey:{badge:'HR Analytics',title:'Pre-Joining Survey Analytics',tagline:'Analyzed 322 candidate survey responses to identify friction points in the pre-joining experience and delivered actionable insights to leadership via an interactive HTML report and PowerPoint deck.',
-    meta:[{label:'Type',value:'HR Analytics'},{label:'Records',value:'322 Responses'},{label:'Output',value:'HTML Report + PPTX'},{label:'Audience',value:'Leadership'}],
+      {t:'text',h:'The Problem',b:'A company-wide pay restructuring required 500+ personalized letters with different CTC components and employee-specific data. Manual generation would have taken days and risked errors.'},
+      {t:'bullets',h:'What I Built',i:['Mail-merge automation pulling from structured Excel employee data','Dynamic template mapping - auto-populated with name, designation, CTC components','Resolved: OneDrive file-locking, column-mapping mismatches, template path errors','Batch processing - all 500+ letters in one run','Individual files per employee, auto-named']},
+      {t:'outcomes',h:'Impact',o:[{n:'500+',d:'Letters generated without manual editing'},{n:'~0',d:'Errors in final output'},{n:'Days',d:'Of manual work eliminated'}]},
+      {t:'tools',h:'Tools Used',tools:['Mail Merge Automation','Excel Data Management','DOCX Template Design','Batch Processing','Error Resolution']},
+      {t:'images',h:'Project Screenshots',c:2}]},
+  survey:{badge:'HR Analytics',title:'Pre-Joining Survey Analytics',tagline:'Analyzed 322 candidate survey responses to identify friction in the pre-joining experience and delivered actionable insights via interactive HTML report and PowerPoint deck.',
+    meta:[{l:'Type',v:'HR Analytics'},{l:'Records',v:'322 Responses'},{l:'Output',v:'HTML Report + PPTX'},{l:'Audience',v:'Leadership'}],
     sections:[
-      {type:'text',title:'The Problem',body:'The organization was collecting pre-joining survey data but not acting on it systematically. No structured analysis existed to identify where candidates were disengaging or experiencing friction before Day 1.'},
-      {type:'bullets',title:'What I Built',items:['Cleaned and structured 322 survey records for analysis','Identified top friction points: delayed communication, unclear joining instructions, IT setup delays','Segmented findings by department, location, and joining cohort','Built an interactive HTML analytics report with visual breakdowns','Prepared a PowerPoint summary deck for leadership with recommended action items']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'322',desc:'Survey records analyzed and structured'},{num:'Top 5',desc:'Friction points identified and escalated'},{num:'Leadership',desc:'Presented with action recommendations'}]},
-      {type:'tools',title:'Tools Used',tools:['Data Cleaning & Analysis','Excel','Interactive HTML Report','PowerPoint','HR Analytics']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]},
-  dashboard:{badge:'Power BI Dashboard',title:'Active Workforce Dashboard',tagline:'A live Power BI dashboard tracking real-time headcount, department distribution, and monthly hiring & attrition trends — with automated refresh eliminating manual reporting cycles entirely.',
-    meta:[{label:'Type',value:'HR Analytics Dashboard'},{label:'Tool',value:'Power BI'},{label:'Refresh',value:'Automated'},{label:'Audience',value:'HR Leadership'}],
+      {t:'text',h:'The Problem',b:'Survey data was being collected but not systematically analyzed. No structure existed to identify where candidates disengaged before Day 1.'},
+      {t:'bullets',h:'What I Built',i:['Cleaned and structured 322 survey records for analysis','Identified top friction points: delayed communication, unclear joining instructions, IT setup delays','Segmented findings by department, location, and joining cohort','Built an interactive HTML analytics report with visual breakdowns','Prepared a PowerPoint deck for leadership with recommended action items']},
+      {t:'outcomes',h:'Impact',o:[{n:'322',d:'Records analyzed and structured'},{n:'Top 5',d:'Friction points identified and escalated'},{n:'Leadership',d:'Presented with action recommendations'}]},
+      {t:'tools',h:'Tools Used',tools:['Data Cleaning & Analysis','Excel','Interactive HTML Report','PowerPoint','HR Analytics']},
+      {t:'images',h:'Project Screenshots',c:2}]},
+  dashboard:{badge:'Power BI Dashboard',title:'Active Workforce Dashboard',tagline:'A live Power BI dashboard tracking real-time headcount, department distribution, and monthly hiring & attrition trends - with automated refresh eliminating manual reporting.',
+    meta:[{l:'Type',v:'HR Analytics Dashboard'},{l:'Tool',v:'Power BI'},{l:'Refresh',v:'Automated'},{l:'Audience',v:'HR Leadership'}],
     sections:[
-      {type:'text',title:'The Problem',body:'Leadership relied on manually prepared monthly headcount reports — time-consuming, error-prone, and always one month behind. There was no real-time visibility into workforce movement.'},
-      {type:'bullets',title:'What I Built',items:['Power BI dashboard tracking live headcount, department distribution, and joining/attrition trends','Dynamic DAX measures for month-on-month comparisons of joiners and leavers','Automated cloud-based data refresh — no manual updates needed','Department and location filters for drill-down analysis','Designed with privacy-safe data masking for sensitive workforce data']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'Real',desc:'Time headcount visibility for leadership'},{num:'0',desc:'Manual reporting effort after automation'},{num:'MoM',desc:'Trend comparisons available on demand'}]},
-      {type:'tools',title:'Tools Used',tools:['Power BI','DAX','Data Modeling','Power Query','HR Data Structuring','Automated Refresh']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]},
-  chatbot:{badge:'AI Tool',title:'AI-Powered HR Chatbot',tagline:'Built a fully functional AI-powered HR chatbot to handle common employee queries on policies, leave, and processes — reducing repetitive query load on the People Connect team.',
-    meta:[{label:'Type',value:'AI Tool'},{label:'Function',value:'Employee Self-Service'},{label:'Status',value:'✅ Functional'},{label:'Impact',value:'Query Reduction'}],
+      {t:'text',h:'The Problem',b:'Leadership relied on manually prepared monthly reports - time-consuming, error-prone, and always one month behind. No real-time visibility into workforce movement.'},
+      {t:'bullets',h:'What I Built',i:['Live headcount, department distribution, and joining/attrition trend tracking','Dynamic DAX measures for month-on-month comparisons','Automated cloud-based data refresh - no manual updates needed','Department and location filters for drill-down analysis','Privacy-safe data masking for sensitive workforce data']},
+      {t:'outcomes',h:'Impact',o:[{n:'Real',d:'Time headcount visibility for leadership'},{n:'0',d:'Manual reporting effort after automation'},{n:'MoM',d:'Trend comparisons available on demand'}]},
+      {t:'tools',h:'Tools Used',tools:['Power BI','DAX','Data Modeling','Power Query','HR Data Structuring']},
+      {t:'images',h:'Project Screenshots',c:2}]},
+  chatbot:{badge:'AI Tool',title:'AI-Powered HR Chatbot',tagline:'Built a fully functional AI-powered HR chatbot handling common employee queries on policies, leave, and processes - reducing repetitive query load on the People Connect team.',
+    meta:[{l:'Type',v:'AI Tool'},{l:'Function',v:'Employee Self-Service'},{l:'Status',v:'✅ Functional'},{l:'Impact',v:'Query Reduction'}],
     sections:[
-      {type:'text',title:'The Problem',body:'The People Connect team was spending significant time answering repetitive employee queries — leave policies, document requests, onboarding FAQs, policy clarifications — eating into capacity for higher-value HR work.'},
-      {type:'bullets',title:'What I Built',items:['AI-powered chatbot handling the most frequent HR query categories','Covers: leave policies, onboarding documents, payroll FAQs, HRMS access requests','Instant, accurate responses — no waiting for HR SPOC to be available','Reduced repetitive query volume hitting the People Connect inbox','Designed for ease of use by non-technical employees across all departments']},
-      {type:'outcomes',title:'Impact',outcomes:[{num:'24/7',desc:'Employee query support without HR intervention'},{num:'Reduced',desc:'Repetitive query load on People Connect team'},{num:'Faster',desc:'Resolution vs. email-based process'}]},
-      {type:'tools',title:'Tools Used',tools:['AI/LLM Integration','HR Policy Design','Conversational UX','Query Classification','HR Process Knowledge']},
-      {type:'images',title:'Project Screenshots',count:2}
-    ]}
+      {t:'text',h:'The Problem',b:'The People Connect team spent significant time answering repetitive employee queries - leave policies, document requests, onboarding FAQs - eating into capacity for high-value work.'},
+      {t:'bullets',h:'What I Built',i:['AI-powered chatbot covering: leave policies, onboarding documents, payroll FAQs, HRMS access requests','Instant, accurate responses - no waiting for HR SPOC availability','Reduced repetitive query volume in the People Connect inbox','Available 24/7 - no HR team intervention needed','Designed for non-technical employees across all departments']},
+      {t:'outcomes',h:'Impact',o:[{n:'24/7',d:'Employee support without HR intervention'},{n:'Reduced',d:'Repetitive query load on team'},{n:'Faster',d:'Resolution vs email-based process'}]},
+      {t:'tools',h:'Tools Used',tools:['AI/LLM Integration','HR Policy Design','Conversational UX','Query Classification','HR Process Knowledge']},
+      {t:'images',h:'Project Screenshots',c:2}]}
 };
 
-function showPage(page){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
+function showPage(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-
-function goHome(section){
+function goHome(sec){
   showPage('home');
-  setTimeout(()=>{const el=document.getElementById(section);if(el)el.scrollIntoView({behavior:'smooth'});},100);
+  setTimeout(()=>{const el=document.getElementById(sec);if(el)el.scrollIntoView({behavior:'smooth'});},120);
 }
-
 function openProject(id){
-  const p=projects[id];
-  document.getElementById('proj-badge').textContent=p.badge;
-  document.getElementById('proj-title').textContent=p.title;
-  document.getElementById('proj-tagline').textContent=p.tagline;
-  document.getElementById('proj-meta').innerHTML=p.meta.map(m=>`<div class="proj-meta-item"><div class="proj-meta-label">${m.label}</div><div class="proj-meta-value">${m.value}</div></div>`).join('');
+  const p=PD[id];
+  document.getElementById('d-badge').textContent=p.badge;
+  document.getElementById('d-title').textContent=p.title;
+  document.getElementById('d-tagline').textContent=p.tagline;
+  document.getElementById('d-meta').innerHTML=p.meta.map(m=>`<div class="meta-item"><div class="meta-label">${m.l}</div><div class="meta-val">${m.v}</div></div>`).join('');
   let html='';
   p.sections.forEach(s=>{
-    html+=`<div class="proj-section"><div class="proj-section-title">${s.title}</div>`;
-    if(s.type==='text')html+=`<p class="proj-text">${s.body}</p>`;
-    if(s.type==='bullets')html+=`<ul class="proj-bullets">${s.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
-    if(s.type==='outcomes')html+=`<div class="outcome-cards">${s.outcomes.map(o=>`<div class="outcome-card"><span class="outcome-num">${o.num}</span><div class="outcome-desc">${o.desc}</div></div>`).join('')}</div>`;
-    if(s.type==='tools')html+=`<div class="tools-used">${s.tools.map(t=>`<span class="tool-chip">${t}</span>`).join('')}</div>`;
-    if(s.type==='images'){
-      html+=`<div class="proj-img-grid">`;
-      for(let i=0;i<s.count;i++)html+=`<div class="proj-img-slot"><div class="proj-img-slot-icon">🖼</div><div class="proj-img-slot-label">Screenshot ${i+1} — upload to add</div></div>`;
-      html+=`</div>`;
-    }
-    html+='</div>';
+    html+=`<div class="d-section"><div class="d-section-h">${s.h}</div>`;
+    if(s.t==='text')html+=`<p class="d-text">${s.b}</p>`;
+    if(s.t==='bullets')html+=`<ul class="d-bullets">${s.i.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+    if(s.t==='outcomes')html+=`<div class="d-outcomes">${s.o.map(x=>`<div class="d-outcome"><span class="d-outcome-num">${x.n}</span><div class="d-outcome-desc">${x.d}</div></div>`).join('')}</div>`;
+    if(s.t==='tools')html+=`<div class="d-tools">${s.tools.map(x=>`<span class="d-tool">${x}</span>`).join('')}</div>`;
+    if(s.t==='images'){html+=`<div class="d-img-grid">`;for(let i=0;i<s.c;i++)html+=`<div class="d-img-slot"><div class="d-img-slot-icon">🖼</div><div class="d-img-slot-label">screenshot_0${i+1}.png</div></div>`;html+=`</div>`;}
+    html+=`</div>`;
   });
-  document.getElementById('proj-content').innerHTML=html;
+  document.getElementById('d-content').innerHTML=html;
   showPage('project');
 }
-
-function toggleInternships(el){
-  const list=document.getElementById('internship-list');
+function toggleIntern(btn){
+  const panel=document.getElementById('intern-panel');
   const icon=document.getElementById('intern-icon');
-  const isOpen=list.classList.contains('open');
-  list.classList.toggle('open');
+  const open=panel.classList.toggle('open');
   icon.classList.toggle('open');
-  el.querySelector('.internship-toggle-label').textContent=isOpen?'Show Internship Experience (2)':'Hide Internship Experience';
+  btn.querySelector('.intern-toggle-label').textContent=open?'Hide Internship Experience':'Show Internship Experience (2)';
 }
 
-// Counter animation
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.querySelectorAll('[data-target]').forEach(el=>{
-        const t=parseInt(el.dataset.target);
-        const sfx=t>=3?'+':'';
-        let c=0,step=Math.ceil(t/50);
-        const timer=setInterval(()=>{c=Math.min(c+step,t);el.textContent=c+sfx;if(c>=t)clearInterval(timer);},20);
-      });
-      obs.unobserve(e.target);
-    }
-  });
+// Counter anim
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){
+    e.target.querySelectorAll('[data-target]').forEach(el=>{
+      const t=parseInt(el.dataset.target),sfx=t>=3?'+':'';
+      let c=0,step=Math.ceil(t/50);
+      const ti=setInterval(()=>{c=Math.min(c+step,t);el.textContent=c+sfx;if(c>=t)clearInterval(ti);},20);
+    });
+    cObs.unobserve(e.target);
+  }});
 },{threshold:0.4});
-document.querySelectorAll('.hero-card,.hl-item').forEach(el=>obs.observe(el));
+document.querySelectorAll('.hero-stat-card,.stat-cell').forEach(el=>cObs.observe(el));
+
+// Scroll reveal
+const rObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');rObs.unobserve(e.target);}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
 </script>
 </body>
 </html>
