@@ -15,6 +15,10 @@
   --text:#080F1E;--text2:#374151;--text3:#6B7A90;
   --border:#E2E8F2;--border2:#C8D8F0;
   --green:#059669;--green-bg:#ECFDF5;--green-border:#A7F3D0;
+  --amber:#D97706;--amber-bg:#FFFBEB;--amber-border:#FDE4A8;
+  --red:#DC2626;--red-bg:#FEF2F2;--red-border:#FCC8C8;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;--purple-border:#DDD6FE;
+  --teal:#0D9488;--teal-bg:#F0FDFA;--teal-border:#99F2E5;
   --mono:'JetBrains Mono',monospace;
   --display:'Sora',sans-serif;
   --body:'Inter',sans-serif;
@@ -238,6 +242,95 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 .d-img-slot{border-radius:12px;border:1.5px dashed var(--border2);aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;background:var(--bg2)}
 .d-img-slot-icon{font-size:1.8rem;opacity:0.25}
 .d-img-slot-label{font-family:var(--mono);font-size:0.72rem;color:var(--text3)}
+
+/* ── Probation Roadmap (.pw-*) ── */
+.pw-wrap{margin-top:0.5rem}
+.pw-intro{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.75rem}
+.pw-live{display:inline-flex;align-items:center;gap:0.45rem;font-family:var(--mono);font-size:0.72rem;color:var(--teal);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.pw-live-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pwPulseDot 1.6s ease-in-out infinite}
+@keyframes pwPulseDot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(13,148,136,.45)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(13,148,136,0)}}
+.pw-view-original{font-family:var(--mono);font-size:0.74rem;font-weight:600;color:var(--blue);background:var(--blue-light);border:1px solid var(--blue-mid);padding:0.4rem 0.85rem;border-radius:7px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:0.4rem}
+.pw-view-original:hover{background:var(--blue-mid);transform:translateY(-1px)}
+
+.pw-phase-label{font-family:var(--mono);font-size:0.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:0 0 0.9rem;display:flex;align-items:center;gap:0.5rem}
+.pw-phase-label .pw-phase-num{background:var(--blue);color:#fff;width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.65rem}
+.pw-phase-label.is-amber{color:var(--amber)}.pw-phase-label.is-amber .pw-phase-num{background:var(--amber)}
+.pw-phase-label.is-red{color:var(--red)}.pw-phase-label.is-red .pw-phase-num{background:var(--red)}
+
+.pw-scroll-hint{font-family:var(--mono);font-size:0.68rem;color:var(--text3);margin-bottom:0.6rem;display:flex;align-items:center;gap:0.35rem}
+.pw-scroll-hint .pw-arrow{display:inline-block;animation:pwArrowMove 1.4s ease-in-out infinite}
+@keyframes pwArrowMove{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+
+.pw-track{display:grid;gap:0;overflow-x:auto;padding:0.4rem 0.2rem 1.1rem;scroll-snap-type:x proximity;margin-bottom:2.4rem}
+.pw-track.pw-cols5{grid-template-columns:repeat(5,minmax(128px,1fr))}
+.pw-track.pw-cols4{grid-template-columns:repeat(4,minmax(128px,1fr))}
+.pw-node{position:relative;padding:0 0.5rem;text-align:center;scroll-snap-align:start}
+.pw-node-icon-row{position:relative;height:60px;display:flex;align-items:center;justify-content:center}
+.pw-node-icon-row::before{content:'';position:absolute;left:-50%;right:50%;top:50%;height:3px;transform:translateY(-50%);background-image:repeating-linear-gradient(90deg,var(--blue-mid) 0 6px,transparent 6px 14px);background-size:20px 100%;animation:pwDash 1.1s linear infinite;z-index:1}
+.pw-node:first-child .pw-node-icon-row::before{display:none}
+.pw-node.is-esc .pw-node-icon-row::before{background-image:repeating-linear-gradient(90deg,var(--red) 0 6px,transparent 6px 14px)}
+@keyframes pwDash{from{background-position:0 0}to{background-position:-20px 0}}
+.pw-node-icon{position:relative;z-index:2;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;background:var(--blue-light);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue-mid),0 4px 12px rgba(26,107,245,0.15);transition:transform .25s}
+.pw-node:hover .pw-node-icon{transform:translateY(-3px) scale(1.06)}
+.pw-node.is-teal .pw-node-icon{background:var(--teal-bg);box-shadow:0 0 0 2px var(--teal-border),0 4px 12px rgba(13,148,136,0.15)}
+.pw-node.is-esc-l1 .pw-node-icon{background:#FEF2F2;box-shadow:0 0 0 2px #FCC8C8,0 4px 12px rgba(220,38,38,0.12)}
+.pw-node.is-esc-l2 .pw-node-icon{background:#FEF1ED;box-shadow:0 0 0 2px #FBD0BE,0 4px 12px rgba(217,73,6,0.12)}
+.pw-node.is-esc-l3 .pw-node-icon{background:#FBEEEE;box-shadow:0 0 0 2px #E8C2DB,0 4px 12px rgba(157,42,108,0.12)}
+.pw-node.is-esc-l4 .pw-node-icon{background:var(--purple-bg);box-shadow:0 0 0 2px var(--purple-border),0 4px 12px rgba(124,58,237,0.15)}
+.pw-node-month{font-family:var(--mono);font-size:0.66rem;color:var(--blue);font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:0.6rem}
+.pw-node.is-esc .pw-node-month{color:var(--red)}
+.pw-node-title{font-weight:700;font-size:0.82rem;color:var(--text);margin-top:0.2rem;line-height:1.3}
+.pw-node-desc{font-size:0.73rem;color:var(--text3);margin-top:0.4rem;line-height:1.55}
+.pw-node-trigger{display:inline-block;margin-top:0.5rem;font-family:var(--mono);font-size:0.64rem;background:var(--blue-light);color:var(--blue);border:1px solid var(--blue-mid);padding:2px 8px;border-radius:5px;font-weight:700}
+.pw-node.is-esc .pw-node-trigger{background:var(--red-bg);color:var(--red);border-color:var(--red-border)}
+.pw-node-recipient{font-size:0.68rem;color:var(--text3);margin-top:0.35rem}
+.pw-node-recipient b{color:var(--text2);font-weight:600}
+
+/* review loop */
+.pw-loop-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.4rem;margin-bottom:2.4rem;display:flex;align-items:center;justify-content:center;gap:0.6rem;flex-wrap:wrap}
+.pw-loop-step{display:flex;flex-direction:column;align-items:center;text-align:center;width:118px}
+.pw-loop-icon{width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--blue-mid);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+.pw-loop-name{font-weight:700;font-size:0.78rem;color:var(--text);margin-top:0.5rem}
+.pw-loop-sub{font-size:0.7rem;color:var(--text3);margin-top:0.15rem;line-height:1.4}
+.pw-loop-arrow{font-size:1.3rem;color:var(--blue-mid);align-self:center;margin-top:-1.4rem}
+.pw-loop-repeat{width:100%;text-align:center;margin-top:0.6rem;font-family:var(--mono);font-size:0.68rem;color:var(--text3)}
+.pw-loop-repeat .pw-spin{display:inline-block;animation:pwSpin 2.4s linear infinite}
+@keyframes pwSpin{to{transform:rotate(360deg)}}
+
+/* decision branches */
+.pw-branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.4rem}
+.pw-branch{border-radius:14px;padding:1.4rem;border:1px solid var(--border);background:#fff;transition:transform .2s,box-shadow .2s}
+.pw-branch:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(8,15,30,0.08)}
+.pw-branch-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.7rem}
+.pw-branch-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.pw-branch.is-green{background:var(--green-bg);border-color:var(--green-border)}.pw-branch.is-green .pw-branch-icon{background:#fff;color:var(--green)}
+.pw-branch.is-amber{background:var(--amber-bg);border-color:var(--amber-border)}.pw-branch.is-amber .pw-branch-icon{background:#fff;color:var(--amber)}
+.pw-branch.is-red{background:var(--red-bg);border-color:var(--red-border)}.pw-branch.is-red .pw-branch-icon{background:#fff;color:var(--red)}
+.pw-branch-trigger{font-family:var(--mono);font-size:0.64rem;font-weight:700;padding:2px 8px;border-radius:5px;background:rgba(255,255,255,.7)}
+.pw-branch.is-green .pw-branch-trigger{color:var(--green)}.pw-branch.is-amber .pw-branch-trigger{color:var(--amber)}.pw-branch.is-red .pw-branch-trigger{color:var(--red)}
+.pw-branch-name{font-weight:700;font-size:0.92rem;color:var(--text);margin-bottom:0.4rem}
+.pw-branch-desc{font-size:0.78rem;color:var(--text2);line-height:1.6}
+
+/* escalation callout */
+.pw-alert{display:flex;gap:0.8rem;background:var(--red-bg);border:1px solid var(--red-border);border-left:4px solid var(--red);border-radius:10px;padding:1.1rem 1.3rem;margin-top:0.4rem}
+.pw-alert-icon{font-size:1.2rem;flex-shrink:0}
+.pw-alert-title{font-weight:700;font-size:0.85rem;color:var(--red);margin-bottom:0.3rem}
+.pw-alert-desc{font-size:0.8rem;color:#7A2424;line-height:1.6}
+
+@media(max-width:700px){
+  .pw-branch-grid{grid-template-columns:1fr}
+  .pw-loop-card{flex-direction:column}
+  .pw-loop-arrow{display:none}
+}
+
+/* original diagram lightbox */
+.pw-lightbox{position:fixed;inset:0;background:rgba(8,15,30,0.82);display:flex;align-items:center;justify-content:center;padding:2rem;z-index:999;opacity:0;pointer-events:none;transition:opacity .25s}
+.pw-lightbox.open{opacity:1;pointer-events:auto}
+.pw-lightbox-inner{position:relative;max-width:min(720px,92vw);max-height:88vh}
+.pw-lightbox-inner img{max-width:100%;max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.4);display:block}
+.pw-lightbox-close{position:absolute;top:-44px;right:0;background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center}
+.pw-lightbox-close:hover{background:rgba(255,255,255,0.22)}
+.pw-lightbox-cap{text-align:center;color:rgba(255,255,255,0.6);font-family:var(--mono);font-size:0.72rem;margin-top:0.8rem}
 
 /* SCROLL REVEAL */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
@@ -665,6 +758,15 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
   </div>
 </div>
 
+<!-- ═══════════════ ORIGINAL DIAGRAM LIGHTBOX ═══════════════ -->
+<div id="pw-lightbox" class="pw-lightbox" onclick="if(event.target===this)pwCloseLightbox()">
+  <div class="pw-lightbox-inner">
+    <button class="pw-lightbox-close" onclick="pwCloseLightbox()">✕</button>
+    <img src="Probation_Flow.png" alt="Probation Management Workflow - original flow diagram designed by Gourav Anand"/>
+    <div class="pw-lightbox-cap">Original flow diagram - designed in NotebookLM, mapped from the live HRMS workflow</div>
+  </div>
+</div>
+
 <script>
 const PD={
   letters:{badge:'Letter Automation',title:'HR Letter Management System',tagline:'A browser-based, fully offline DOCX mail-merge dashboard that unified Increment, Promotion, and Appointment Letter generation - adopted as the standard process by the People Connect team.',
@@ -682,7 +784,7 @@ const PD={
       {t:'bullets',h:'What I Built',i:['End-to-end probation workflow mapped from Day 1 joining to confirmation/extension/exit decision','Automated reminder triggers at 30, 60, and 90-day milestones','Clear escalation logic for non-responsive managers','SOP document for HR team and a flow diagram for cross-team alignment with IT and Business','Eliminated 100% of manual follow-up effort']},
       {t:'outcomes',h:'Impact',o:[{n:'0',d:'Manual follow-ups needed post-implementation'},{n:'100%',d:'On-time confirmation rate after rollout'},{n:'Cross',d:'Functional alignment across HR, IT & Business'}]},
       {t:'tools',h:'Tools Used',tools:['Process Mapping','SOP Design','PowerPoint','Workflow Logic','Stakeholder Management']},
-      {t:'images',h:'Project Screenshots',c:2}]},
+      {t:'roadmap',h:'Live Process Roadmap - The 8-Month Automated Journey'}]},
   payroll:{badge:'Payroll Automation',title:'Bulk Pay Restructuring Automation',tagline:'Built an automation system that generated 500+ individualized pay restructuring letters from a single Excel source - solving template, mapping, and file-path challenges at scale.',
     meta:[{l:'Type',v:'Document Automation'},{l:'Volume',v:'500+ Letters'},{l:'Source',v:'Excel Data'},{l:'Status',v:'✅ Completed'}],
     sections:[
@@ -740,6 +842,134 @@ function openProject(id){
     if(s.t==='outcomes')html+=`<div class="d-outcomes">${s.o.map(x=>`<div class="d-outcome"><span class="d-outcome-num">${x.n}</span><div class="d-outcome-desc">${x.d}</div></div>`).join('')}</div>`;
     if(s.t==='tools')html+=`<div class="d-tools">${s.tools.map(x=>`<span class="d-tool">${x}</span>`).join('')}</div>`;
     if(s.t==='images'){html+=`<div class="d-img-grid">`;for(let i=0;i<s.c;i++)html+=`<div class="d-img-slot"><div class="d-img-slot-icon">🖼</div><div class="d-img-slot-label">screenshot_0${i+1}.png</div></div>`;html+=`</div>`;}
+    if(s.t==='roadmap'){html+=`<div class="pw-wrap">
+      <div class="pw-intro">
+        <span class="pw-live"><span class="pw-live-dot"></span>System logic - live in production</span>
+        <button class="pw-view-original" onclick="pwOpenLightbox()">🖼 View original diagram ↗</button>
+      </div>
+
+      <div class="pw-phase-label"><span class="pw-phase-num">1</span>Phase 1 - The review phase</div>
+      <div class="pw-scroll-hint">scroll to follow the timeline <span class="pw-arrow">→</span></div>
+      <div class="pw-track pw-cols5">
+        <div class="pw-node">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">🧑‍💼</div></div>
+          <div class="pw-node-month">Month 0</div>
+          <div class="pw-node-title">Employee Joining</div>
+          <div class="pw-node-desc">HRMS records Date of Joining; 6-month probation end date is calculated automatically.</div>
+        </div>
+        <div class="pw-node">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">🗣️</div></div>
+          <div class="pw-node-month">Month 2</div>
+          <div class="pw-node-title">Feedback Checkpoint</div>
+          <div class="pw-node-desc">Manager completes the HRMS feedback form and meets the employee to discuss on-track status.</div>
+        </div>
+        <div class="pw-node">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">💬</div></div>
+          <div class="pw-node-month">Month 4</div>
+          <div class="pw-node-title">Feedback Checkpoint</div>
+          <div class="pw-node-desc">Second formal check-in - Manager documents progress and alignment in HRMS.</div>
+        </div>
+        <div class="pw-node">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">⏰</div></div>
+          <div class="pw-node-month">Month 5</div>
+          <div class="pw-node-title">Initiation Nudge</div>
+          <div class="pw-node-desc">Automated nudge to the Line Manager to begin formal review and schedule the 1:1 probation meeting.</div>
+          <div class="pw-node-trigger">T1</div>
+        </div>
+        <div class="pw-node is-teal">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">📋</div></div>
+          <div class="pw-node-month">Day 170</div>
+          <div class="pw-node-title">Assessment Form Unlocks</div>
+          <div class="pw-node-desc">10 days before probation end, the assessment form activates for the Manager. Employee SLA: 3 days to respond.</div>
+          <div class="pw-node-trigger">T2</div>
+        </div>
+      </div>
+
+      <div class="pw-loop-card">
+        <div class="pw-loop-step">
+          <div class="pw-loop-icon">🧑‍💼</div>
+          <div class="pw-loop-name">Manager</div>
+          <div class="pw-loop-sub">Submit evaluation (T3)</div>
+        </div>
+        <div class="pw-loop-arrow">→</div>
+        <div class="pw-loop-step">
+          <div class="pw-loop-icon">🧑‍💻</div>
+          <div class="pw-loop-name">Employee</div>
+          <div class="pw-loop-sub">Final sign-off</div>
+        </div>
+        <div class="pw-loop-arrow">→</div>
+        <div class="pw-loop-step">
+          <div class="pw-loop-icon">⏱️</div>
+          <div class="pw-loop-name">3-Day SLA</div>
+          <div class="pw-loop-sub">to acknowledge / comment</div>
+        </div>
+        <div class="pw-loop-repeat"><span class="pw-spin">↻</span>&nbsp; Step 6 - The Review Loop repeats until the evaluation is signed off</div>
+      </div>
+
+      <div class="pw-phase-label is-amber"><span class="pw-phase-num">2</span>Phase 2 - Month 6: the decision point</div>
+      <div class="pw-branch-grid">
+        <div class="pw-branch is-green">
+          <div class="pw-branch-top"><div class="pw-branch-icon">🏆</div><div class="pw-branch-trigger">T4</div></div>
+          <div class="pw-branch-name">Confirmation</div>
+          <div class="pw-branch-desc">Upon successful completion, HRMS automatically generates and sends the confirmation letter - zero manual drafting.</div>
+        </div>
+        <div class="pw-branch is-amber">
+          <div class="pw-branch-top"><div class="pw-branch-icon">📅</div><div class="pw-branch-trigger">T8</div></div>
+          <div class="pw-branch-name">Extension</div>
+          <div class="pw-branch-desc">Manager recommends a one-time extension (max 3 months). All automated triggers reset upon HR approval.</div>
+        </div>
+        <div class="pw-branch is-red">
+          <div class="pw-branch-top"><div class="pw-branch-icon">🤝</div><div class="pw-branch-trigger">EXIT</div></div>
+          <div class="pw-branch-name">Separation</div>
+          <div class="pw-branch-desc">Initiates the formal exit workflow - handoff to the offboarding process.</div>
+        </div>
+      </div>
+
+      <div class="pw-phase-label is-red"><span class="pw-phase-num">3</span>Step 8 - The escalation matrix (T5 → T8)</div>
+      <div class="pw-scroll-hint">scroll through the escalation ladder <span class="pw-arrow">→</span></div>
+      <div class="pw-track pw-cols4">
+        <div class="pw-node is-esc is-esc-l1">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">⏰</div></div>
+          <div class="pw-node-month">Month 6 · L1</div>
+          <div class="pw-node-title">Overdue Alert</div>
+          <div class="pw-node-desc">Overdue alerts sent every 10 days.</div>
+          <div class="pw-node-trigger">T5</div>
+          <div class="pw-node-recipient">Recipient: <b>Manager</b></div>
+        </div>
+        <div class="pw-node is-esc is-esc-l2">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">🧑‍💼</div></div>
+          <div class="pw-node-month">Month 7 · L2</div>
+          <div class="pw-node-title">HR Takes Over</div>
+          <div class="pw-node-desc">HR Ops takes over follow-up ownership.</div>
+          <div class="pw-node-trigger">T6</div>
+          <div class="pw-node-recipient">Recipient: <b>HR Ops</b></div>
+        </div>
+        <div class="pw-node is-esc is-esc-l3">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">👩‍💼</div></div>
+          <div class="pw-node-month">Month 7.5 · L3</div>
+          <div class="pw-node-title">HRBP Escalation</div>
+          <div class="pw-node-desc">Triggered if HR Ops remains silent for 15 days.</div>
+          <div class="pw-node-trigger">T7</div>
+          <div class="pw-node-recipient">Recipient: <b>HRBP</b></div>
+        </div>
+        <div class="pw-node is-esc is-esc-l4">
+          <div class="pw-node-icon-row"><div class="pw-node-icon">🚩</div></div>
+          <div class="pw-node-month">Month 8 · L4</div>
+          <div class="pw-node-title">Auto-Confirmation</div>
+          <div class="pw-node-desc">System auto-confirms the employee - and flags the manager.</div>
+          <div class="pw-node-trigger">T8</div>
+          <div class="pw-node-recipient">Recipient: <b>Employee</b></div>
+        </div>
+      </div>
+
+      <div class="pw-alert">
+        <div class="pw-alert-icon">⚠️</div>
+        <div>
+          <div class="pw-alert-title">Key Finding - L4 Manager Non-Compliance Flag</div>
+          <div class="pw-alert-desc">If the system reaches Month 8 "Auto-Confirm," a permanent non-compliance flag is added to the Manager's record - so accountability stays visible, not just the employee outcome.</div>
+        </div>
+      </div>
+    </div>`;}
     if(s.t==='dual-env'){html+=`<div class="env-showcase">
       <div class="env-card">
         <div class="env-badge">Environment 1</div>
@@ -784,6 +1014,9 @@ function openProject(id){
   document.getElementById('d-content').innerHTML=html;
   showPage('project');
 }
+function pwOpenLightbox(){document.getElementById('pw-lightbox').classList.add('open')}
+function pwCloseLightbox(){document.getElementById('pw-lightbox').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')pwCloseLightbox()});
 function toggleIntern(btn){
   const panel=document.getElementById('intern-panel');
   const icon=document.getElementById('intern-icon');
