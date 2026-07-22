@@ -35,6 +35,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{color:var(--text3);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;cursor:pointer}
 .nav-links a:hover{color:var(--blue)}
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:0}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:transform 0.25s ease,opacity 0.25s ease}
+.nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open span:nth-child(2){opacity:0}
+.nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile-menu{display:flex;flex-direction:column;position:fixed;top:62px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(8,15,30,0.08);z-index:199;max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.nav-mobile-menu.open{max-height:400px}
+.nav-mobile-menu a{padding:1rem 1.5rem;color:var(--text2);text-decoration:none;font-size:0.95rem;font-weight:500;border-bottom:1px solid var(--border);cursor:pointer}
+.nav-mobile-menu a:active{background:var(--bg2)}
+.nav-mobile-menu .nav-mobile-cta{color:var(--blue);font-weight:600}
 .nav-right{display:flex;align-items:center;gap:0.8rem}
 .nav-status{display:flex;align-items:center;gap:0.45rem;font-size:0.75rem;font-weight:600;color:var(--green);background:var(--green-bg);border:1px solid var(--green-border);padding:0.3rem 0.8rem;border-radius:100px}
 .nav-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
@@ -44,9 +54,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 
 /* ── HERO ── */
 .hero-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:8rem 2rem 5rem;position:relative;overflow:hidden}
+#hero-mesh{position:absolute;inset:-10%;width:120%;height:120%;z-index:0;pointer-events:none;background:
+  radial-gradient(circle at 20% 30%, rgba(26,107,245,0.14) 0%, transparent 45%),
+  radial-gradient(circle at 80% 20%, rgba(129,140,248,0.12) 0%, transparent 45%),
+  radial-gradient(circle at 50% 80%, rgba(26,107,245,0.10) 0%, transparent 50%),
+  radial-gradient(circle at 85% 75%, rgba(94,234,212,0.09) 0%, transparent 45%);
+  background-size:200% 200%;
+  animation:mesh-drift 22s ease-in-out infinite;
+  filter:blur(10px)}
+@keyframes mesh-drift{
+  0%{background-position:0% 0%, 100% 0%, 50% 100%, 100% 100%}
+  50%{background-position:60% 40%, 30% 60%, 70% 30%, 20% 70%}
+  100%{background-position:0% 0%, 100% 0%, 50% 100%, 100% 100%}
+}
+@media (prefers-reduced-motion: reduce){
+  #hero-mesh{animation:none}
+}
 .hero-section::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(26,107,245,0.07) 0%,transparent 70%);pointer-events:none}
 .hero-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(26,107,245,0.04) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:center}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-inner{max-width:1140px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 380px;gap:5rem;align-items:center;position:relative;z-index:1}
 
 /* Terminal block */
 .terminal{background:var(--text);border-radius:12px;padding:1.5rem;font-family:var(--mono);font-size:0.8rem;line-height:1.8;margin-bottom:2.5rem;border:1px solid #1E2D42;box-shadow:0 4px 24px rgba(8,15,30,0.12)}
@@ -74,6 +101,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .btn-blue:hover{background:var(--blue-dark);box-shadow:0 6px 20px rgba(26,107,245,0.4);transform:translateY(-1px)}
 .btn-outline{border:1.5px solid var(--border2);color:var(--text2);padding:0.8rem 2rem;border-radius:9px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
 .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-neutral{border:1.5px solid var(--border2);color:var(--text2);padding:0.8rem 2rem;border-radius:9px;font-weight:500;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem}
+.btn-neutral:hover{background:var(--bg2)}
 .btn-ghost-dl{border:1.5px solid var(--blue);color:var(--blue);padding:0.8rem 2rem;border-radius:9px;font-weight:600;font-size:0.9rem;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.5rem;background:#fff}
 .btn-ghost-dl:hover{background:var(--blue-light)}
 
@@ -356,11 +385,14 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
   .contact-inner{grid-template-columns:1fr;gap:3rem}
   .d-outcomes{grid-template-columns:1fr}
 }
+@media(max-width:860px){
+  .nav-links{display:none}.nav-status{display:none}
+  .nav-burger{display:flex}
+}
 @media(max-width:600px){
   .exp-row{grid-template-columns:1fr}.exp-row::before{display:none}.exp-node{display:none}.exp-left-col{padding-bottom:0}
   .projects-grid{grid-template-columns:1fr}
   .skills-cols{grid-template-columns:1fr}
-  .nav-links{display:none}.nav-status{display:none}
   .d-img-grid{grid-template-columns:1fr}
   .d-outcomes{grid-template-columns:1fr}
 }
@@ -394,7 +426,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo" onclick="showPage('home')">
+    <div class="nav-logo" onclick="showPage('home');closeMobileMenu()">
       <span class="nav-logo-dot"></span> Gourav Anand
     </div>
     <ul class="nav-links">
@@ -407,14 +439,26 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
       <div class="nav-status"><span class="nav-dot"></span>Open to Work</div>
       <a href="mailto:gouravthisside@gmail.com" class="nav-cta">Get in Touch</a>
     </div>
+    <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile-menu" id="nav-mobile-menu">
+  <a onclick="goHomeMobile('experience')">Experience</a>
+  <a onclick="goHomeMobile('projects')">Projects</a>
+  <a onclick="goHomeMobile('skills')">Skills</a>
+  <a onclick="goHomeMobile('contact')">Contact</a>
+  <a href="mailto:gouravthisside@gmail.com" class="nav-mobile-cta">Get in Touch</a>
+</div>
 
 <!-- ═══════════════ HOME PAGE ═══════════════ -->
 <div id="page-home" class="page active">
 
   <!-- HERO -->
-  <div class="hero-section">
+  <div class="hero-section" id="hero-section">
+    <div id="hero-mesh"></div>
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-inner">
       <div>
 
@@ -437,7 +481,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
         <div class="hero-actions">
           <a href="mailto:gouravthisside@gmail.com" class="btn-blue">✉ Get in Touch</a>
           <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-ghost-dl">↓ Resume</a>
-          <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="btn-outline">in LinkedIn</a>
+          <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="btn-ghost-dl">in LinkedIn</a>
         </div>
       </div>
       <div>
@@ -885,6 +929,137 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 </div>
 
 <script>
+/* ── Interactive particle-network hero background ── */
+(function(){
+  const canvas=document.getElementById('hero-canvas');
+  if(!canvas) return;
+  const ctx=canvas.getContext('2d');
+  const section=document.getElementById('hero-section');
+  let w,h,dpr=Math.min(window.devicePixelRatio||1,2);
+  let particles=[];
+  let mouse={x:null,y:null,active:false};
+  const isMobile=window.matchMedia('(max-width:768px)').matches;
+  const COUNT=isMobile?32:60;
+  const LINK_DIST=isMobile?110:150;
+  const MOUSE_DIST=180;
+
+  function resize(){
+    w=section.offsetWidth; h=section.offsetHeight;
+    canvas.width=w*dpr; canvas.height=h*dpr;
+    canvas.style.width=w+'px'; canvas.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function makeParticles(){
+    particles=[];
+    for(let i=0;i<COUNT;i++){
+      particles.push({
+        x:Math.random()*w,
+        y:Math.random()*h,
+        vx:(Math.random()-0.5)*0.25,
+        vy:(Math.random()-0.5)*0.25,
+        r:Math.random()*1.6+0.8,
+        phase:Math.random()*Math.PI*2,
+        speed:0.6+Math.random()*0.6
+      });
+    }
+  }
+
+  function step(){
+    ctx.clearRect(0,0,w,h);
+
+    for(const p of particles){
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>w) p.vx*=-1;
+      if(p.y<0||p.y>h) p.vy*=-1;
+      p.x=Math.max(0,Math.min(w,p.x));
+      p.y=Math.max(0,Math.min(h,p.y));
+
+      if(mouse.active){
+        const dx=p.x-mouse.x, dy=p.y-mouse.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<MOUSE_DIST){
+          const force=(MOUSE_DIST-dist)/MOUSE_DIST;
+          p.x+=(dx/dist)*force*1.1;
+          p.y+=(dy/dist)*force*1.1;
+        }
+      }
+    }
+
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const a=particles[i], b=particles[j];
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<LINK_DIST){
+          ctx.strokeStyle='rgba(26,107,245,'+((1-dist/LINK_DIST)*0.18)+')';
+          ctx.lineWidth=1;
+          ctx.beginPath();
+          ctx.moveTo(a.x,a.y);
+          ctx.lineTo(b.x,b.y);
+          ctx.stroke();
+        }
+      }
+      if(mouse.active){
+        const dx=particles[i].x-mouse.x, dy=particles[i].y-mouse.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<MOUSE_DIST){
+          ctx.strokeStyle='rgba(26,107,245,'+((1-dist/MOUSE_DIST)*0.35)+')';
+          ctx.lineWidth=1;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(mouse.x,mouse.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for(const p of particles){
+      p.phase+=0.02*p.speed;
+      const pulse=(Math.sin(p.phase)+1)/2;
+      const glowR=p.r+pulse*1.6;
+      ctx.save();
+      ctx.shadowColor='rgba(26,107,245,'+(0.55+pulse*0.35)+')';
+      ctx.shadowBlur=6+pulse*8;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,glowR,0,Math.PI*2);
+      ctx.fillStyle='rgba(26,107,245,'+(0.45+pulse*0.35)+')';
+      ctx.fill();
+      ctx.restore();
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  section.addEventListener('mousemove',(e)=>{
+    const rect=section.getBoundingClientRect();
+    mouse.x=e.clientX-rect.left;
+    mouse.y=e.clientY-rect.top;
+    mouse.active=true;
+  });
+  section.addEventListener('mouseleave',()=>{ mouse.active=false; });
+  section.addEventListener('touchmove',(e)=>{
+    if(!e.touches[0]) return;
+    const rect=section.getBoundingClientRect();
+    mouse.x=e.touches[0].clientX-rect.left;
+    mouse.y=e.touches[0].clientY-rect.top;
+    mouse.active=true;
+  },{passive:true});
+  section.addEventListener('touchend',()=>{ mouse.active=false; });
+
+  window.addEventListener('resize',()=>{ resize(); makeParticles(); });
+
+  resize();
+  makeParticles();
+  if(!reduceMotion){
+    requestAnimationFrame(step);
+  } else {
+    step(); // draw one static frame only
+  }
+})();
+
 const PD={
   letters:{badge:'Letter Automation',title:'HR Letter Management System',tagline:'A browser-based, fully offline DOCX mail-merge dashboard that unified Increment, Promotion, and Appointment Letter generation - adopted as the standard process by the People Connect team.',
     meta:[{l:'Type',v:'Process Automation Tool'},{l:'Platform',v:'Browser-based · Offline'},{l:'Status',v:'✅ In Active Use'},{l:'Scope',v:'People Connect Team'}],
@@ -949,6 +1124,23 @@ function showPage(p){
 function goHome(sec){
   showPage('home');
   setTimeout(()=>{const el=document.getElementById(sec);if(el)el.scrollIntoView({behavior:'smooth'});},120);
+}
+function toggleMobileMenu(){
+  const menu=document.getElementById('nav-mobile-menu');
+  const burger=document.getElementById('nav-burger');
+  const isOpen=menu.classList.toggle('open');
+  burger.classList.toggle('open',isOpen);
+  burger.setAttribute('aria-expanded',isOpen?'true':'false');
+}
+function closeMobileMenu(){
+  document.getElementById('nav-mobile-menu').classList.remove('open');
+  const burger=document.getElementById('nav-burger');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded','false');
+}
+function goHomeMobile(sec){
+  closeMobileMenu();
+  goHome(sec);
 }
 function openProject(id){
   const p=PD[id];
