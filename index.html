@@ -186,6 +186,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .intern-role{font-weight:700;font-size:0.9rem;color:var(--text);margin:0.1rem 0}
 .intern-org{font-size:0.82rem;color:var(--text3)}
 
+/* ── PROJECTS SECTION (dark, matches pillars) ── */
+#projects.section-outer{background:var(--text);position:relative;overflow:hidden}
+#projects.section-outer::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#080F1E 0%,#0D1829 100%)}
+#projects .section-inner{position:relative;z-index:1}
+#projects .section-eyebrow{color:#60A5FA}
+#projects .section-h2{color:#fff}
+#projects .section-sub{color:#94A3B8}
+
 /* ── PROJECT CARDS ── */
 .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .proj-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all 0.25s;position:relative}
@@ -216,6 +224,41 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .skill-tags-wrap{display:flex;flex-wrap:wrap;gap:0.45rem}
 .s-tag{font-size:0.78rem;background:#fff;border:1px solid var(--border2);color:var(--text2);padding:0.32rem 0.8rem;border-radius:6px;font-weight:500;transition:all 0.2s;cursor:default}
 .s-tag:hover{background:var(--blue-light);border-color:var(--blue-mid);color:var(--blue)}
+
+/* ── RECOMMENDATIONS (dark, glass, matches pillars but distinct tone) ── */
+#recommendations.section-outer{background:var(--text);position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.08);padding-top:6rem}
+#recommendations.section-outer::before{content:'';position:absolute;inset:0;background:linear-gradient(200deg,#0A1220 0%,#161F3A 100%)}
+#recommendations.section-outer::after{content:'';position:absolute;top:-150px;left:-150px;width:520px;height:520px;background:radial-gradient(circle,rgba(124,58,237,0.11) 0%,transparent 70%);pointer-events:none}
+.reco-divider{max-width:1140px;margin:0 auto 3rem;position:relative;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.18) 50%,transparent);z-index:1}
+.reco-divider span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#131B2E;color:#60A5FA;font-size:0.85rem;padding:0 1rem;font-family:var(--mono)}
+#recommendations .section-inner{position:relative;z-index:1}
+#recommendations .section-eyebrow{color:#A78BFA}
+#recommendations .section-h2{color:#fff}
+#recommendations .section-sub{color:#94A3B8}
+
+.reco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.reco-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem 1.6rem 1.6rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all 0.3s}
+.reco-card::before{content:'\201C';position:absolute;top:-1.2rem;right:0.8rem;font-family:var(--display);font-size:7rem;font-weight:700;color:rgba(255,255,255,0.05);line-height:1;pointer-events:none}
+.reco-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;border-radius:16px;pointer-events:none}
+.reco-card:nth-child(1)::after{background:linear-gradient(135deg,rgba(26,107,245,0.10),transparent)}
+.reco-card:nth-child(2)::after{background:linear-gradient(135deg,rgba(139,92,246,0.10),transparent)}
+.reco-card:nth-child(3)::after{background:linear-gradient(135deg,rgba(5,150,105,0.10),transparent)}
+.reco-card:hover::after{opacity:1}
+.reco-card:hover{border-color:rgba(255,255,255,0.18);transform:translateY(-6px);background:rgba(255,255,255,0.06)}
+.reco-top{display:flex;align-items:flex-start;gap:0.8rem;margin-bottom:1.1rem;position:relative;z-index:1}
+.reco-avatar{width:46px;height:46px;border-radius:50%;color:#fff;font-family:var(--display);font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,0.25)}
+.reco-card:nth-child(1) .reco-avatar{background:linear-gradient(135deg,#1A6BF5,#60A5FA)}
+.reco-card:nth-child(2) .reco-avatar{background:linear-gradient(135deg,#7C3AED,#C4B5FD)}
+.reco-card:nth-child(3) .reco-avatar{background:linear-gradient(135deg,#0D9488,#5EEAD4)}
+.reco-who{min-width:0}
+.reco-name{font-family:var(--display);font-size:0.9rem;font-weight:700;color:#fff;line-height:1.3;display:flex;align-items:center;gap:0.35rem}
+.reco-in-badge{width:15px;height:15px;background:#0A66C2;color:#fff;font-size:0.6rem;font-weight:700;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.reco-role{font-size:0.72rem;color:#8B98AC;line-height:1.5;margin-top:0.3rem}
+.reco-rel{font-family:var(--mono);font-size:0.67rem;color:#5C6B82;margin-top:0.45rem;letter-spacing:0.02em}
+.reco-quote{font-size:0.82rem;color:#CBD5E1;line-height:1.75;flex-grow:1;margin-bottom:1.2rem;position:relative;z-index:1}
+.reco-link-btn{align-self:flex-start;display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--mono);font-size:0.72rem;font-weight:600;color:#60A5FA;background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.3);padding:0.45rem 0.9rem;border-radius:7px;text-decoration:none;transition:all 0.2s;position:relative;z-index:1}
+.reco-link-btn:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+@media (max-width:900px){.reco-grid{grid-template-columns:1fr}}
 
 /* ── CERT + EDU ── */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
@@ -441,10 +484,10 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
       <li><a onclick="goHome('experience')">Experience</a></li>
       <li><a onclick="goHome('projects')">Projects</a></li>
       <li><a onclick="goHome('skills')">Skills</a></li>
+      <li><a onclick="goHome('recommendations')">Recommendations</a></li>
       <li><a onclick="goHome('contact')">Contact</a></li>
     </ul>
     <div class="nav-right">
-      <div class="nav-status"><span class="nav-dot"></span>Open to Work</div>
       <a href="mailto:gouravthisside@gmail.com" class="nav-cta">Get in Touch</a>
     </div>
     <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMobileMenu()">
@@ -456,6 +499,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
   <a onclick="goHomeMobile('experience')">Experience</a>
   <a onclick="goHomeMobile('projects')">Projects</a>
   <a onclick="goHomeMobile('skills')">Skills</a>
+  <a onclick="goHomeMobile('recommendations')">Recommendations</a>
   <a onclick="goHomeMobile('contact')">Contact</a>
   <a href="mailto:gouravthisside@gmail.com" class="nav-mobile-cta">Get in Touch</a>
 </div>
@@ -541,6 +585,60 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
       </div>
     </div>
   </div>
+
+  <!-- RECOMMENDATIONS -->
+  <div class="section-outer" id="recommendations">
+    <div class="reco-divider"><span>✦</span></div>
+    <div class="section-inner">
+      <div class="section-eyebrow">// linkedin recommendations</div>
+      <div class="section-h2">What people say about working with me</div>
+      <p class="section-sub">Received from managers and collaborators across companies. Click through to read them on LinkedIn.</p>
+      <div class="reco-grid">
+
+        <div class="reco-card">
+          <div class="reco-top">
+            <div class="reco-avatar">SV</div>
+            <div class="reco-who">
+              <div class="reco-name">Dr. (H.C.) Sagar Vadapurkar <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">HR Leader | GCCs | SaaS | FinTech | Organization Building | Leadership Transformation | Core Member – HR Association of India</div>
+              <div class="reco-rel">Managed Gourav directly · Aug 4, 2026</div>
+            </div>
+          </div>
+          <p class="reco-quote">"I've had the pleasure of working with Gourav Anand and have always appreciated his ownership and commitment to delivering quality work. He is dependable, detail-oriented, and continuously looks for ways to improve HR processes. His expertise in HR Operations, employee lifecycle management, payroll support, and HR systems makes him a valuable team member. Gourav is quick to learn, collaborative, and always willing to take on new challenges. I highly recommend him to any organization looking for a strong HR Operations professional."</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+        <div class="reco-card">
+          <div class="reco-top">
+            <div class="reco-avatar">VK</div>
+            <div class="reco-who">
+              <div class="reco-name">Vishakha Kale <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">Strategic Talent Acquisition Manager driving leadership hiring and data-driven recruitment strategies</div>
+              <div class="reco-rel">Senior to Gourav (didn't manage directly) · Aug 3, 2026</div>
+            </div>
+          </div>
+          <p class="reco-quote">"Although I had the opportunity to work with Gourav for a relatively short period, he left a very positive impression. His ability to derive meaningful insights from data and present them through well-structured dashboards and analysis was particularly impressive, especially considering his experience level. Gourav approaches his work with sincerity, integrity, and a genuine willingness to learn. He is dependable, analytical, and consistently strives to deliver quality outcomes. I believe he has significant potential and will continue to grow into a strong professional. I wish him every success in his career ahead."</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+        <div class="reco-card">
+          <div class="reco-top">
+            <div class="reco-avatar">SS</div>
+            <div class="reco-who">
+              <div class="reco-name">Shruti Saumya <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">Talent Acquisition Specialist | IT & Non-IT Hiring | End-to-End Recruitment | Boolean Search | LinkedIn Recruiter | Stakeholder Management | Immediate Joiner</div>
+              <div class="reco-rel">Worked together at different companies · Sep 14, 2024</div>
+            </div>
+          </div>
+          <p class="reco-quote">"I've worked with Gourav and he is a talented HR professional with a deep understanding of the HR domain and HR analytics part. Highly recommended!"</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
 
   <!-- EXPERIENCE -->
   <div class="section-outer" id="experience">
