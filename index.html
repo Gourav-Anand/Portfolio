@@ -152,14 +152,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .section-h2{font-family:var(--display);font-size:clamp(1.7rem,3vw,2.1rem);font-weight:2000;color:var(--text);margin-bottom:0.5rem;letter-spacing:-0.02em}
 .section-sub{color:var(--text3);margin-bottom:3rem;font-size:0.95rem}
 
-.exp-timeline{display:flex;flex-direction:column;gap:0}
-.exp-row{display:grid;grid-template-columns:200px 1fr;position:relative}
-.exp-row::before{content:'';position:absolute;left:188px;top:2rem;bottom:0;width:1px;background:var(--border)}
-.exp-row:last-child::before{display:none}
-.exp-left-col{padding:1.8rem 2rem 2rem 0;position:relative}
-.exp-node{position:absolute;right:-7px;top:2rem;width:14px;height:14px;background:var(--blue);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--blue-mid)}
-.exp-date-label{font-family:var(--mono);font-size:0.73rem;color:var(--text3);line-height:1.6}
-.exp-body{padding:1.8rem 0 2.5rem 2.5rem}
+.exp-hwrap{overflow-x:auto;padding:0.5rem 0 1rem;margin-top:1.5rem}
+.exp-hline-track{display:flex;align-items:flex-start;justify-content:space-between;position:relative;min-width:640px;padding:0 0.5rem}
+.exp-hline-track::before{content:'';position:absolute;left:0;right:0;top:23px;height:2px;background:var(--border2);z-index:0}
+.exp-hitem{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;cursor:pointer;flex:1;padding:0 0.6rem}
+.exp-hdate{font-family:var(--mono);font-size:0.65rem;color:var(--text3);margin-bottom:0.55rem;white-space:nowrap}
+.exp-hdot{width:16px;height:16px;border-radius:50%;background:var(--blue-mid);border:3px solid #fff;box-shadow:0 0 0 2px var(--border2);margin-bottom:1rem;transition:all .2s}
+.exp-hitem:hover .exp-hdot{transform:scale(1.12)}
+.exp-hitem.active .exp-hdot{background:var(--blue);box-shadow:0 0 0 4px var(--blue-light);transform:scale(1.15)}
+.exp-hbox{border:1.5px dashed var(--border2);border-radius:10px;padding:0.65rem 0.9rem;background:#fff;text-align:center;min-width:150px;max-width:200px;transition:all .2s}
+.exp-hitem:hover .exp-hbox{border-color:var(--blue-mid)}
+.exp-hitem.active .exp-hbox{border-color:var(--blue);border-style:solid;background:var(--blue-light);box-shadow:0 4px 14px rgba(26,107,245,.15)}
+.exp-hbox-company{font-weight:700;font-size:0.82rem;color:var(--text);line-height:1.35}
+.exp-hbox-role{font-size:0.72rem;color:var(--text3);margin-top:0.2rem;line-height:1.35}
+.exp-hitem.active .exp-hbox-company{color:var(--blue)}
+.exp-hint{text-align:center;font-family:var(--mono);font-size:0.7rem;color:var(--text3);margin:0 0 1.6rem}
+.exp-detail{border:1px solid var(--border);border-radius:14px;padding:1.8rem 2rem;background:var(--card)}
 .exp-role-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;background:var(--blue-light);color:var(--blue);padding:0.22rem 0.7rem;border-radius:5px;margin-bottom:0.7rem;border:1px solid var(--blue-mid)}
 .exp-role{font-family:var(--display);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:0.2rem}
 .exp-org{font-size:0.875rem;color:var(--text3);font-weight:500;margin-bottom:0.9rem}
@@ -237,16 +245,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,
 .reco-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem 1.6rem 1.6rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:all 0.3s}
 .reco-card::before{content:'\201C';position:absolute;top:-1.2rem;right:0.8rem;font-family:var(--display);font-size:7rem;font-weight:700;color:rgba(255,255,255,0.05);line-height:1;pointer-events:none}
 .reco-card::after{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.3s;border-radius:16px;pointer-events:none}
-.reco-card:nth-child(1)::after{background:linear-gradient(135deg,rgba(26,107,245,0.10),transparent)}
-.reco-card:nth-child(2)::after{background:linear-gradient(135deg,rgba(139,92,246,0.10),transparent)}
-.reco-card:nth-child(3)::after{background:linear-gradient(135deg,rgba(5,150,105,0.10),transparent)}
+.reco-card:nth-child(1)::after,.reco-card:nth-child(4)::after{background:linear-gradient(135deg,rgba(26,107,245,0.10),transparent)}
+.reco-card:nth-child(2)::after,.reco-card:nth-child(5)::after{background:linear-gradient(135deg,rgba(139,92,246,0.10),transparent)}
+.reco-card:nth-child(3)::after,.reco-card:nth-child(6)::after{background:linear-gradient(135deg,rgba(5,150,105,0.10),transparent)}
 .reco-card:hover::after{opacity:1}
 .reco-card:hover{border-color:rgba(255,255,255,0.18);transform:translateY(-6px);background:rgba(255,255,255,0.06)}
 .reco-top{display:flex;align-items:flex-start;gap:0.8rem;margin-bottom:1.1rem;position:relative;z-index:1}
 .reco-avatar{width:46px;height:46px;border-radius:50%;color:#fff;font-family:var(--display);font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(0,0,0,0.25)}
-.reco-card:nth-child(1) .reco-avatar{background:linear-gradient(135deg,#1A6BF5,#60A5FA)}
-.reco-card:nth-child(2) .reco-avatar{background:linear-gradient(135deg,#7C3AED,#C4B5FD)}
-.reco-card:nth-child(3) .reco-avatar{background:linear-gradient(135deg,#0D9488,#5EEAD4)}
+.reco-card:nth-child(1) .reco-avatar,.reco-card:nth-child(4) .reco-avatar{background:linear-gradient(135deg,#1A6BF5,#60A5FA)}
+.reco-card:nth-child(2) .reco-avatar,.reco-card:nth-child(5) .reco-avatar{background:linear-gradient(135deg,#7C3AED,#C4B5FD)}
+.reco-card:nth-child(3) .reco-avatar,.reco-card:nth-child(6) .reco-avatar{background:linear-gradient(135deg,#0D9488,#5EEAD4)}
 .reco-who{min-width:0}
 .reco-name{font-family:var(--display);font-size:0.9rem;font-weight:700;color:#fff;line-height:1.3;display:flex;align-items:center;gap:0.35rem}
 .reco-in-badge{width:15px;height:15px;background:#0A66C2;color:#fff;font-size:0.6rem;font-weight:700;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -380,7 +388,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 .pw-loop-icon{width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--blue-mid);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
 .pw-loop-name{font-weight:700;font-size:0.78rem;color:var(--text);margin-top:0.5rem}
 .pw-loop-sub{font-size:0.7rem;color:var(--text3);margin-top:0.15rem;line-height:1.4}
-.pw-loop-arrow{font-size:1.3rem;color:var(--blue-mid);align-self:center;margin-top:-1.4rem}
+.pw-loop-arrow{font-size:1.3rem;color:var(--blue-mid);align-self:center}
 .pw-loop-repeat{width:100%;text-align:center;margin-top:0.6rem;font-family:var(--mono);font-size:0.68rem;color:var(--text3)}
 .pw-loop-repeat .pw-spin{display:inline-block;animation:pwSpin 2.4s linear infinite}
 @keyframes pwSpin{to{transform:rotate(360deg)}}
@@ -438,7 +446,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
   .nav-burger{display:flex}
 }
 @media(max-width:600px){
-  .exp-row{grid-template-columns:1fr}.exp-row::before{display:none}.exp-node{display:none}.exp-left-col{padding-bottom:0}
+  .exp-hbox{min-width:128px;max-width:150px;padding:0.5rem 0.6rem}.exp-hbox-company{font-size:0.73rem}.exp-hbox-role{font-size:0.65rem}.exp-detail{padding:1.4rem 1.3rem}
   .projects-grid{grid-template-columns:1fr}
   .skills-cols{grid-template-columns:1fr}
   .d-img-grid{grid-template-columns:1fr}
@@ -449,7 +457,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 .env-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1rem}
 @media(max-width:700px){.env-grid{grid-template-columns:1fr}}
 .env-pillar-wrap{display:flex;flex-direction:column;gap:.5rem}
-.env-pillar{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden;border:1px solid var(--border2);background:#0B1220;box-shadow:0 4px 14px rgba(8,15,30,.1);cursor:pointer}
+.env-pillar{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border2);background:#0B1220;box-shadow:0 4px 14px rgba(8,15,30,.1);cursor:pointer}
 .env-pillar img,.env-pillar video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
 .env-pillar:hover img,.env-pillar:hover video{transform:scale(1.05)}
 .mini-tag{position:absolute;top:.6rem;left:.6rem;font-size:.6rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.55);backdrop-filter:blur(3px);padding:.22rem .55rem;border-radius:20px;z-index:2}
@@ -524,7 +532,6 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
         </div>
         <div class="hero-actions">
           <a href="mailto:gouravthisside@gmail.com" class="btn-blue">✉ Get in Touch</a>
-          <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-ghost-dl">↓ Resume</a>
           <a href="https://www.linkedin.com/in/hrgouravanand" target="_blank" class="btn-ghost-dl">in LinkedIn</a>
         </div>
       </div>
@@ -585,6 +592,45 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
 
         <div class="reco-card">
           <div class="reco-top">
+            <div class="reco-avatar">AM</div>
+            <div class="reco-who">
+              <div class="reco-name">Ashish Masih <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">Strategic HR | Performance & Talent Management | OD & Capability | Competency Strategy | Turning People Potential into Business Impact</div>
+              <div class="reco-rel">Managed Gourav directly · Sep 2, 2026</div>
+            </div>
+          </div>
+          <p class="reco-quote">"I had the opportunity to work with Gourav and found him to be enthusiastic, proactive, and eager to learn. He consistently demonstrated a positive attitude, took ownership of his responsibilities, and was receptive to feedback. His ability to learn quickly and contribute effectively reflects his strong potential. I would gladly recommend Gourav for opportunities where he can continue to learn, grow, and make a meaningful contribution."</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+        <div class="reco-card">
+          <div class="reco-top">
+            <div class="reco-avatar">LM</div>
+            <div class="reco-who">
+              <div class="reco-name">Lubdha Mundafale Aloni <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">Human Resource Business Partner</div>
+              <div class="reco-rel">Worked with Gourav on the same team · Aug 25, 2026</div>
+            </div>
+          </div>
+          <p class="reco-quote">"I have worked closely with Gourav during his tenure with ParentPay and I will definitely recommend him for his hands on excellence with Data and Reporting. His learning attitude helps him to explore new tools and techniques to automate the processes which eventually helps to run the process smoothly. In a short span of career, he has managed to handle the complete employee data for the HR domain."</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+        <div class="reco-card">
+          <div class="reco-top">
+            <div class="reco-avatar">AW</div>
+            <div class="reco-who">
+              <div class="reco-name">Aditya Wazalwar <span class="reco-in-badge">in</span></div>
+              <div class="reco-role">IT Manager | Leader | ITILv4 Certified | Service Delivery | EUC | IT Service Management | O365 | Microsoft Intune | CyberArk</div>
+              <div class="reco-rel">Senior to Gourav (didn't manage directly) · Aug 13, 2026</div>
+            </div>
+          </div>
+          <p class="reco-quote">"I've had the pleasure of working with Gourav, and he has always been incredibly helpful and supportive. His humble attitude and willingness to collaborate make him a great person to work with. What I particularly appreciate is his curiosity and forward-thinking approach. Gourav is always keen to explore how we can automate processes and leverage various tools available in the market to make things more efficient and effective. It has been a pleasure working with him, and I highly recommend him for his positive attitude, supportive nature, and continuous focus on improvement and innovation."</p>
+          <a href="https://www.linkedin.com/in/hrgouravanand/details/recommendations/" target="_blank" class="reco-link-btn">View on LinkedIn ↗</a>
+        </div>
+
+        <div class="reco-card">
+          <div class="reco-top">
             <div class="reco-avatar">SV</div>
             <div class="reco-who">
               <div class="reco-name">Dr. (H.C.) Sagar Vadapurkar <span class="reco-in-badge">in</span></div>
@@ -601,7 +647,7 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
             <div class="reco-avatar">VK</div>
             <div class="reco-who">
               <div class="reco-name">Vishakha Kale <span class="reco-in-badge">in</span></div>
-              <div class="reco-role">Strategic Talent Acquisition Manager driving leadership hiring and data-driven recruitment strategies</div>
+              <div class="reco-role">Talent Acquisition Leader | Enabling Business Success Through Talent | Strategic Workforce Planning</div>
               <div class="reco-rel">Senior to Gourav (didn't manage directly) · Aug 3, 2026</div>
             </div>
           </div>
@@ -634,48 +680,77 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
       <div class="section-eyebrow">// experience</div>
       <div class="section-h2">Where I've worked</div>
       <p class="section-sub">Roles where I owned outcomes, not just tasks.</p>
-      <div class="exp-timeline">
-
-        <div class="exp-row reveal">
-          <div class="exp-left-col">
-            <div class="exp-node"></div>
-            <div class="exp-date-label">Nov 2024<br/>Present</div>
+      <div class="exp-hwrap reveal">
+        <div class="exp-hline-track">
+          <div class="exp-hitem" data-exp="2" onclick="selectExp(2,this)">
+            <div class="exp-hdate">Jun 2022 – May 2023</div>
+            <div class="exp-hdot"></div>
+            <div class="exp-hbox">
+              <div class="exp-hbox-company">Bubble Creations Digital Studio</div>
+              <div class="exp-hbox-role">HR Executive – Recruitment & HRMS</div>
+            </div>
           </div>
-          <div class="exp-body">
-            <div class="exp-role-badge">🟢 Current</div>
-            <div class="exp-role">HR Operations – People Connect</div>
-            <div class="exp-org">ParentPay India Pvt. Ltd.</div>
-            <div class="exp-scope-chip">2000+ employees · India, UK & Sri Lanka</div>
-            <ul class="exp-list-items">
-              <li>Own end-to-end Employee Lifecycle SOPs - onboarding, confirmations, transfers, exits - ensuring 100% SLA adherence across three countries.</li>
-              <li>Manage HRMS data integrity and role-based access governance across Workday, SAP SuccessFactors, and ServiceNow.</li>
-              <li>Run monthly payroll operations: input validation, statutory checks, benefits processing, and Full & Final settlements.</li>
-              <li>Serve as Insurance SPOC - redesigned claim escalation SOP, improving resolution TAT by 80%.</li>
-              <li>Build and maintain HR MIS dashboards tracking workforce movement, attrition, hiring TAT, and SLA compliance.</li>
-              <li>Led HRMS workflow improvements reducing post-joining documentation TAT by 80%.</li>
-              <li>Maintain audit-ready employee, benefits, and BGV records with zero audit deviations.</li>
-              <li>Primary SPOC for all employee queries - 100% case resolution within defined SLAs.</li>
-            </ul>
+          <div class="exp-hitem" data-exp="1" onclick="selectExp(1,this)">
+            <div class="exp-hdate">Nov 2024 – 2026</div>
+            <div class="exp-hdot"></div>
+            <div class="exp-hbox">
+              <div class="exp-hbox-company">ParentPay India Pvt. Ltd.</div>
+              <div class="exp-hbox-role">HR Operations – People Connect</div>
+            </div>
           </div>
-        </div>
-
-        <div class="exp-row reveal">
-          <div class="exp-left-col">
-            <div class="exp-node"></div>
-            <div class="exp-date-label">Jun 2022<br/>May 2023</div>
-          </div>
-          <div class="exp-body">
-            <div class="exp-role">HR Executive – Recruitment & HRMS Operations</div>
-            <div class="exp-org">Bubble Creations Digital Studio Pvt. Ltd.</div>
-            <ul class="exp-list-items">
-              <li>Managed end-to-end recruitment lifecycle and pipeline tracking in Workday HCM.</li>
-              <li>Executed onboarding operations in Workday - employee profiles, job details, compensation data.</li>
-              <li>Processed lifecycle transactions: job changes, compensation revisions, terminations.</li>
-              <li>Coordinated payroll input validation and generated workforce reports for manpower planning.</li>
-            </ul>
+          <div class="exp-hitem" data-exp="0" onclick="selectExp(0,this)">
+            <div class="exp-hdate">2026 – Present</div>
+            <div class="exp-hdot"></div>
+            <div class="exp-hbox">
+              <div class="exp-hbox-company">Johnson Controls (JCI)</div>
+              <div class="exp-hbox-role">HR Operations – Total Rewards</div>
+            </div>
           </div>
         </div>
+      </div>
+      <p class="exp-hint">Click a role to view details</p>
 
+      <div class="exp-detail reveal" id="exp-detail-0" style="display:none">
+        <div class="exp-role-badge">🟢 Current</div>
+        <div class="exp-role">HR Operations – Total Rewards</div>
+        <div class="exp-org">Johnson Controls (JCI) · 2026 – Present</div>
+        <ul class="exp-list-items">
+          <li>Manage end-to-end employee lifecycle processes while supporting compensation and benefits programs.</li>
+          <li>Support annual salary review and increment cycles, salary benchmarking, and compensation analysis.</li>
+          <li>Drive pay parity and internal equity assessments across the organization.</li>
+          <li>Administer variable pay and incentive programs, plus benefits and insurance administration.</li>
+          <li>Own compensation budgeting and support market benchmarking and pay-equity studies.</li>
+          <li>Prepare HR MIS, dashboards, and analytics using Excel/Power BI - analyzing headcount and workforce costs.</li>
+          <li>Coordinate with payroll and benefits vendors, ensuring data accuracy and audit compliance.</li>
+          <li>Drive HR process improvements, automation, and standardization in collaboration with HR, Finance, IT, and business stakeholders.</li>
+        </ul>
+      </div>
+
+      <div class="exp-detail reveal" id="exp-detail-1" style="display:none">
+        <div class="exp-role">HR Operations – People Connect</div>
+        <div class="exp-org">ParentPay India Pvt. Ltd. · Nov 2024 – 2026</div>
+        <div class="exp-scope-chip">2000+ employees · India, UK & Sri Lanka</div>
+        <ul class="exp-list-items">
+          <li>Owned end-to-end Employee Lifecycle SOPs - onboarding, confirmations, transfers, exits - ensuring 100% SLA adherence across three countries.</li>
+          <li>Managed HRMS data integrity and role-based access governance across Workday, SAP SuccessFactors, and ServiceNow.</li>
+          <li>Ran monthly payroll operations: input validation, statutory checks, benefits processing, and Full & Final settlements.</li>
+          <li>Served as Insurance SPOC - redesigned claim escalation SOP, improving resolution TAT by 80%.</li>
+          <li>Built and maintained HR MIS dashboards tracking workforce movement, attrition, hiring TAT, and SLA compliance.</li>
+          <li>Led HRMS workflow improvements reducing post-joining documentation TAT by 80%.</li>
+          <li>Maintained audit-ready employee, benefits, and BGV records with zero audit deviations.</li>
+          <li>Primary SPOC for all employee queries - 100% case resolution within defined SLAs.</li>
+        </ul>
+      </div>
+
+      <div class="exp-detail reveal" id="exp-detail-2" style="display:none">
+        <div class="exp-role">HR Executive – Recruitment & HRMS Operations</div>
+        <div class="exp-org">Bubble Creations Digital Studio Pvt. Ltd. · Jun 2022 – May 2023</div>
+        <ul class="exp-list-items">
+          <li>Managed end-to-end recruitment lifecycle and pipeline tracking in Workday HCM.</li>
+          <li>Executed onboarding operations in Workday - employee profiles, job details, compensation data.</li>
+          <li>Processed lifecycle transactions: job changes, compensation revisions, terminations.</li>
+          <li>Coordinated payroll input validation and generated workforce reports for manpower planning.</li>
+        </ul>
       </div>
 
       <div class="intern-toggle-btn" onclick="toggleIntern(this)">
@@ -960,7 +1035,6 @@ footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.07);text-a
         <div class="contact-label">// let's connect</div>
         <h2 class="contact-h2">Ready to build the<br/><span>future of HR</span><br/>with you.</h2>
         <p class="contact-desc">Looking for HR Operations, People Operations, or HR Analytics roles in tech companies, GCCs, or MNCs. Open to Pune, Hyderabad & Bangalore.</p>
-        <a href="https://drive.google.com/file/d/1cqpUd_vjrMvlYo5Q4egSxbEMAd_eGroB/view?usp=sharing" target="_blank" class="btn-ghost-dl" style="background:transparent;border-color:rgba(255,255,255,0.25);color:#fff;margin-top:0.5rem">↓ Download Resume</a>
       </div>
       <div class="contact-cards">
         <a href="mailto:gouravthisside@gmail.com" class="contact-card">
@@ -1431,6 +1505,13 @@ function pwCloseLightbox(){document.getElementById('pw-lightbox').classList.remo
 function ssOpenLightbox(src){document.getElementById('ss-lightbox-img').src=src;document.getElementById('ss-lightbox').classList.add('open')}
 function ssCloseLightbox(){document.getElementById('ss-lightbox').classList.remove('open')}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){pwCloseLightbox();ssCloseLightbox();}});
+function selectExp(idx,el){
+  document.querySelectorAll('.exp-hitem').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.exp-detail').forEach(d=>d.style.display='none');
+  const panel=document.getElementById('exp-detail-'+idx);
+  if(panel)panel.style.display='';
+}
 function toggleIntern(btn){
   const panel=document.getElementById('intern-panel');
   const icon=document.getElementById('intern-icon');
